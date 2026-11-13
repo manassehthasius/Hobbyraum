@@ -1,0 +1,38 @@
+# VORLAGE – noch NICHT aktiv. Aktivierung nur nach Freigabe:
+#   1) Datei nach .github/workflows/monitor.yml kopieren und auf den Default-Branch mergen
+#   2) Unter Settings → Secrets and variables → Actions die gewünschten Secrets setzen
+#      (z. B. NTFY_TOPIC, oder TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID)
+name: Hobbyraum-Monitor
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # alle 15 Min. (GitHub verzögert Cron-Jobs gelegentlich um einige Minuten)
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  issues: write
+concurrency: { group: hobbyraum-monitor, cancel-in-progress: false }
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Neue Angebote suchen & melden
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GITHUB_ISSUE: ${{ vars.GITHUB_ISSUE }}
+          GH_MENTION: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scraper/monitor.py
+          python3 scripts/build.py
+      - name: Stand speichern (Duplikat-Schutz)
+        run: |
+          git config user.name "hobbyraum-monitor"
+          git config user.email "actions@users.noreply.github.com"
+          git add data ANGEBOTE.md VERWALTUNGEN.md emails
+          git diff --cached --quiet || (git commit -m "Monitor: Stand $(date -u +%F' '%H:%M)" && git push)

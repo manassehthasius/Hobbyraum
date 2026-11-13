@@ -1,0 +1,10 @@
+{
+ "_info": "Nach profil.json kopieren und ausfüllen (profil.json ist in .gitignore – das Repo ist öffentlich!). Danach: python3 scripts/build.py",
+ "name": "[Vorname Nachname]",
+ "telefon": "[Telefonnummer]",
+ "email": "[E-Mail-Adresse]",
+ "hobby": "[mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]",
+ "nutzung_detail": "Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen.",
+ "start": "so bald wie möglich",
+ "budget": "maximal ca. CHF 300 pro Monat"
+}
