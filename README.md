@@ -11,7 +11,7 @@ Private Seite auf claude.ai: https://claude.ai/artifact/XapS53q2M7veruPetJk3iL
 Dort sind alle Angebote und Verwaltungen zu sehen. Neue Treffer stehen oben und sind gelb markiert. Den Status setzt du per Auswahlfeld, und auf Wunsch gibt es zu jedem Eintrag einen E-Mail-Entwurf.
 Deine Angaben für die Entwürfe (Tab «E-Mail-Angaben») sind nur für dich sichtbar.
 Quelltext: `web/hobbyraum-radar.html`. Daten: Datenbank der Seite (`angebote`, `verwaltungen`, `meta/status`, `meta/seen`).
-Der Prüflauf liest die Skripte unter `monitor/*.py` der Seite, startet `monitor.py --seen-file … --out …` und schreibt neue Treffer in die Datenbank.
+**Prüflauf:** ein geplanter Claude-Task («Hobbyraum-Radar Prüflauf», täglich 7:37, 12:37 und 17:37 Uhr) liest die Skripte unter `monitor/*.py` der Seite, startet `monitor.py --seen-file … --batch-dir …` und schreibt neue Treffer mit Status «neu» in die Datenbank. Benachrichtigungen sind aus; aktivierbar per Push oder E-Mail in den Einstellungen des geplanten Tasks.
 
 ## Inhalt
 

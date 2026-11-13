@@ -153,6 +153,37 @@ def to_doc(r, now):
         "frage": "Ist dieser Raum noch verfügbar, und wäre eine ruhige Hobbynutzung möglich? Gerne würde ich ihn besichtigen.",
         "publiziert": r.get("publiziert")}
 
+def doc_id(i):
+    """Gültige Dokument-ID für die Datenbank der Webseite (keine Schrägstriche usw.)."""
+    i = i.replace("https://", "").replace("http://", "")
+    return re.sub(r"[^A-Za-z0-9_\-.~:@+]", "_", i)[:200].strip(".") or "x"
+
+def write_batch(d, found, seen, errors, intervall):
+    """Erzeugt <d>/writes.json: fertige ArtifactData-batch-Einträge (max. 50), Dokumente als Dateien daneben.
+    Die beiden meta-Einträge brauchen noch if_version (Platzhalter "IF_VERSION_SEEN"/"IF_VERSION_STATUS")."""
+    d.mkdir(parents=True, exist_ok=True)
+    now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+    writes, lines = [], []
+    for n, r in enumerate(found[:48]):
+        doc = to_doc(r, now)
+        doc["id"] = doc_id(doc["id"])
+        f = d / f"doc_{n}.json"; f.write_text(json.dumps(doc, ensure_ascii=False))
+        writes.append({"op": "set", "collection": "angebote", "doc_id": doc["id"], "file_path": str(f.resolve())})
+        lines.append(f"{doc.get('adresse') or doc.get('titel')} – " + (f"CHF {doc['chf_monat']}" if doc.get("chf_monat") else "Preis offen"))
+    (d / "seen_doc.json").write_text(json.dumps({"ids": sorted(seen)}, ensure_ascii=False))
+    status = {"letzte_pruefung": now, "intervall": intervall, "letzter_lauf": f"{len(found)} neue(s) Angebot(e)",
+              "fehler": errors}
+    if found:
+        status["letzter_fund"] = now
+    (d / "status_doc.json").write_text(json.dumps(status, ensure_ascii=False))
+    writes.append({"op": "set", "collection": "meta", "doc_id": "seen", "file_path": str((d / "seen_doc.json").resolve()), "if_version": "IF_VERSION_SEEN"})
+    writes.append({"op": "update", "collection": "meta", "doc_id": "status", "file_path": str((d / "status_doc.json").resolve()), "if_version": "IF_VERSION_STATUS"})
+    (d / "writes.json").write_text(json.dumps(writes, ensure_ascii=False))
+    (d / "zusammenfassung.txt").write_text((f"{len(found)} neue(s) Angebot(e):\n" + "\n".join(lines)) if found else "Keine neuen Angebote.")
+    print((d / "zusammenfassung.txt").read_text())
+    if errors:
+        print("Fehler:", "; ".join(errors))
+
 def add_to_list(found):
     d = load(ANGEBOTE, None)
     if not d:
@@ -178,6 +209,8 @@ def main():
     ap.add_argument("--seed", action="store_true", help="aktuellen Stand als bekannt markieren, nichts melden")
     ap.add_argument("--seen-file", help="eigene Datei für gesehene IDs (Webseiten-Modus)")
     ap.add_argument("--out", help="neue Angebote als JSON-Liste in diese Datei schreiben, nichts senden")
+    ap.add_argument("--batch-dir", help="Webseiten-Modus: fertige Datenbank-Schreibvorgänge (writes.json + Dokumente) in diesen Ordner")
+    ap.add_argument("--intervall", default="3× täglich (ca. 7:40, 12:40, 17:40 Uhr)")
     a = ap.parse_args()
     seen_path = pathlib.Path(a.seen_file) if a.seen_file else SEEN
     seen = load(seen_path, {})
@@ -186,17 +219,20 @@ def main():
     known = load(ANGEBOTE, {"angebote": [], "ausgeschlossen": []})
     for x in known["angebote"] + known.get("ausgeschlossen", []):   # bereits erfasste/ausgeschlossene nie neu melden
         seen.setdefault(x["id"], 1)
-    found = []
+    found, errors = [], []
     try:
         found += check_flatfox(seen)
     except Exception as e:
-        print("Flatfox-Fehler:", e, file=sys.stderr)
+        errors.append(f"Flatfox: {e}"); print("Flatfox-Fehler:", e, file=sys.stderr)
     for site in SITES:
         try:
             found += check_site(site, seen)
         except Exception as e:
-            print(f"{site['name']}-Fehler:", e, file=sys.stderr)
+            errors.append(f"{site['name']}: {e}"); print(f"{site['name']}-Fehler:", e, file=sys.stderr)
     seen_path.write_text(json.dumps(seen, ensure_ascii=False, indent=0, sort_keys=True))
+    if a.batch_dir:
+        write_batch(pathlib.Path(a.batch_dir), found, seen, errors, a.intervall)
+        return
     if a.out:
         now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
         docs = [to_doc(r, now) for r in found]

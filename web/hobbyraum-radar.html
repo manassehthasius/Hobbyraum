@@ -386,7 +386,7 @@ button, select, input, textarea { font: inherit; color: inherit; }
     var box = $("newbox");
     if (!S.loadedA) { box.innerHTML = ""; return; }
     if (!nw.length) {
-      box.innerHTML = '<div class="newbox empty">Keine neuen Angebote. Sobald der stündliche Prüflauf etwas Passendes findet, erscheint es hier gelb markiert.</div>';
+      box.innerHTML = '<div class="newbox empty">Keine neuen Angebote. Der Prüflauf schaut 3× täglich nach (ca. 7:40, 12:40 und 17:40 Uhr). Neue Treffer erscheinen hier gelb markiert.</div>';
       return;
     }
     box.innerHTML = '<div class="newbox"><div class="newbox-head"><h2>' + nw.length + (nw.length === 1 ? " neues Angebot" : " neue Angebote") + '</h2>' +
@@ -499,12 +499,12 @@ button, select, input, textarea { font: inherit; color: inherit; }
       if (!db) { clearTimeout(timer); noData("Die Datenbank ist in dieser Ansicht nicht verfügbar. Öffne die Seite angemeldet auf claude.ai."); return; }
       S.db = db;
       db.collection("angebote").onSnapshot(function (snap) {
-        S.angebote = snap.docs.map(function (d) { var x = Object.assign({}, d.data()); x.id = x.id || d.id; return x; });
+        S.angebote = snap.docs.map(function (d) { var x = Object.assign({}, d.data()); x.id = d.id; return x; });
         if (!snap.metadata.fromCache) clearTimeout(timer);
         S.loadedA = true; render();
       }, function () { clearTimeout(timer); noData("Die Angebote konnten nicht geladen werden. Bitte die Seite später neu öffnen."); });
       db.collection("verwaltungen").onSnapshot(function (snap) {
-        S.verw = snap.docs.map(function (d) { var x = Object.assign({}, d.data()); x.id = x.id || d.id; return x; });
+        S.verw = snap.docs.map(function (d) { var x = Object.assign({}, d.data()); x.id = d.id; return x; });
         S.loadedV = true; render();
       }, function () {});
       db.doc("meta/status").onSnapshot(function (d) { S.meta = d.exists ? d.data() : null; render(); }, function () {});
