@@ -5,6 +5,11 @@ import json, pathlib, re
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 A = json.loads((ROOT / "data/angebote.json").read_text())
 V = json.loads((ROOT / "data/verwaltungen.json").read_text())
+_ST = json.loads((ROOT / "data/status.json").read_text()) if (ROOT / "data/status.json").exists() else {}
+for _x in A["angebote"]:
+    if _x["id"] in _ST.get("angebote", {}): _x["status"] = _ST["angebote"][_x["id"]]["status"]
+for _x in V["verwaltungen"]:
+    if _x["id"] in _ST.get("verwaltungen", {}): _x["status"] = _ST["verwaltungen"][_x["id"]]["status"]
 P = json.loads(((ROOT / "profil.json") if (ROOT / "profil.json").exists() else (ROOT / "profil.example.json")).read_text())
 
 STATUS = {"offen": "⬜ offen", "neu": "🆕 neu", "kontaktiert": "📨 kontaktiert", "antwort": "💬 Antwort erhalten",

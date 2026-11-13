@@ -185,23 +185,28 @@ def write_batch(d, found, seen, errors, intervall):
         print("Fehler:", "; ".join(errors))
 
 def add_to_list(found):
+    """Repo-Modus: neue Treffer mit Status «neu» an data/angebote.json anhängen."""
     d = load(ANGEBOTE, None)
     if not d:
         return
+    now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
     ids = {a["id"] for a in d["angebote"]}
     for r in found:
-        if r["id"] in ids:
-            continue
-        d["angebote"].append({
-            "id": r["id"], "status": "neu", "prio": 2, "verifiziert": f"Monitor {datetime.date.today()}",
-            "titel": r.get("titel"), "typ": r.get("typ"), "adresse": r.get("adresse") or r.get("quelle"), "km": r.get("km"),
-            "chf_monat": r.get("chf_monat"), "preis_text": None, "m2": r.get("m2"), "verfuegbar": r.get("verfuegbar"),
-            "anbieter": r.get("anbieter") or r.get("quelle"), "kontakt_person": None, "telefon": None, "email": None,
-            "kontaktweg": r.get("kontaktformular"), "link": r["link"], "weitere_links": [],
-            "nutzung": None, "hinweise": (r.get("beschreibung") or "")[:300] or None,
-            "frage": "Ist dieser Raum noch verfügbar, und wäre eine ruhige Hobbynutzung möglich? Gerne würde ich ihn besichtigen.",
-            "publiziert": r.get("publiziert")})
+        doc = to_doc(r, now)
+        doc["id"] = doc_id(doc["id"])
+        if doc["id"] not in ids:
+            d["angebote"].append(doc); ids.add(doc["id"])
     ANGEBOTE.write_text(json.dumps(d, ensure_ascii=False, indent=1))
+
+def write_meta(found, errors, intervall):
+    """Repo-Modus: Prüfstatus für die Webseite (data/meta.json)."""
+    p = ROOT / "data/meta.json"
+    m = load(p, {})
+    now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+    m.update({"letzte_pruefung": now, "intervall": intervall, "letzter_lauf": f"{len(found)} neue(s) Angebot(e)", "fehler": errors})
+    if found:
+        m["letzter_fund"] = now
+    p.write_text(json.dumps(m, ensure_ascii=False, indent=1))
 
 def main():
     ap = argparse.ArgumentParser()
@@ -243,9 +248,14 @@ def main():
         print(f"Seed: {len(seen)} IDs als bekannt markiert, {len(found)} würden sonst gemeldet.")
         return
     for r in found:
-        notify(r, a.dry_run)
-    if found:
-        add_to_list(found)
+        try:
+            notify(r, a.dry_run)
+        except Exception as e:
+            print("Benachrichtigung fehlgeschlagen:", e, file=sys.stderr)
+    if not a.dry_run:
+        if found:
+            add_to_list(found)
+        write_meta(found, errors, a.intervall)
     print(f"{datetime.datetime.now():%Y-%m-%d %H:%M} – {len(found)} neue(s) Angebot(e).")
 
 if __name__ == "__main__":

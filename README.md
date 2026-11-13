@@ -1,54 +1,36 @@
 # Hobbyraum-Suche Winterthur
 
-Ziel: so schnell wie möglich einen **günstigen Hobby-/Bastelraum** im Umkreis von 1–5 km (max. 10 km) um Winterthur-Neuwiesen/Lind finden, bei neuen Angeboten **sofort** benachrichtigt werden und alle Anfragen versandfertig haben.
+Ziel: so schnell wie möglich einen **günstigen Hobby-/Bastelraum** im Umkreis von 1–5 km (max. 10 km) um Winterthur-Neuwiesen/Lind finden, neue Angebote sofort sehen und alle Anfragen versandfertig haben.
 
-> **Datenschutz:** Dieses Repo ist **öffentlich**. Deshalb stehen hier weder die exakte Adresse noch Name, Telefon oder E-Mail.
-> Persönliche Angaben gehören nur in `profil.json`, die per `.gitignore` nie committet wird.
+## Webseite: https://manassehthasius.github.io/Hobbyraum/
 
-## Webseite «Hobbyraum-Radar»
+- Alle Angebote und Verwaltungen. **Neue Treffer stehen oben und sind gelb markiert.**
+- Den Status (offen, kontaktiert, Antwort, Besichtigung, zugesagt, abgesagt, vergeben) setzt du direkt auf der Seite. Er wird im Browser gespeichert, mit GitHub-Schlüssel (Tab «Einstellungen») auch in `data/status.json` und damit auf allen Geräten.
+- Optional zu jedem Eintrag ein **E-Mail-Entwurf**, der sich im Mailprogramm öffnen oder kopieren lässt. Name, Telefon und Hobby trägst du unter «Einstellungen» ein; diese Angaben bleiben im Browser und kommen nie ins Repo.
 
-Private Seite auf claude.ai: https://claude.ai/artifact/XapS53q2M7veruPetJk3iL
-Dort sind alle Angebote und Verwaltungen zu sehen. Neue Treffer stehen oben und sind gelb markiert. Den Status setzt du per Auswahlfeld, und auf Wunsch gibt es zu jedem Eintrag einen E-Mail-Entwurf.
-Deine Angaben für die Entwürfe (Tab «E-Mail-Angaben») sind nur für dich sichtbar.
-Quelltext: `web/hobbyraum-radar.html`. Daten: Datenbank der Seite (`angebote`, `verwaltungen`, `meta/status`, `meta/seen`).
-**Prüflauf:** ein geplanter Claude-Task («Hobbyraum-Radar Prüflauf», täglich 7:37, 12:37 und 17:37 Uhr) liest die Skripte unter `monitor/*.py` der Seite, startet `monitor.py --seen-file … --batch-dir …` und schreibt neue Treffer mit Status «neu» in die Datenbank. Benachrichtigungen sind aus; aktivierbar per Push oder E-Mail in den Einstellungen des geplanten Tasks.
+> **Öffentlich:** GitHub Pages ist für jeden mit dem Link erreichbar. Deshalb gibt es im Repo keine exakte Adresse (auf ca. 100 m gerundet), keinen Namen und keine Telefonnummer.
 
-## Inhalt
+## Automatische Prüfung
+
+`.github/workflows/monitor.yml` läuft **alle 30 Minuten** (GitHub Actions, gratis bei öffentlichem Repo; GitHub startet geplante Läufe manchmal einige Minuten später):
+
+1. `scraper/monitor.py` fragt die **Flatfox-API** ab (Nebenräume, Gewerbe, Parkieren im 10-km-Radius; Flatfox spiegelt auch einen Teil der Homegate/ImmoScout24-Inserate) sowie die Websites von **Gesewo, Terresta, L+B, HGW und dem Gewerbehaus Passant**.
+2. Neue passende Räume landen mit Status «neu» in `data/angebote.json`. Bereits gesehene Inserate stehen in `data/seen.json` und werden nie doppelt gemeldet; dasselbe Objekt, neu inseriert, erkennt der Monitor an Adresse, Fläche und Preis.
+3. `data/meta.json` enthält den Zeitpunkt der letzten Prüfung (oben rechts auf der Seite).
+4. `scripts/build.py` aktualisiert die Markdown-Listen.
+
+Homegate, ImmoScout24, Comparis, Newhome und Tutti sperren automatische Abfragen. Für diese Portale sind die Suchabos der Portale selbst der Weg.
+
+Optional sind Push-Meldungen über Repo-Secrets möglich: `NTFY_TOPIC` (App «ntfy») oder `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID`.
+
+## Dateien
 
 | Datei | Zweck |
 |---|---|
-| [`ANGEBOTE.md`](ANGEBOTE.md) | Übersicht aller passenden Räume: Preis, Grösse, Distanz, Verfügbarkeit, Anbieter, Kontakt, Link, Status |
-| [`VERWALTUNGEN.md`](VERWALTUNGEN.md) | 38 Verwaltungen, Genossenschaften und Spezialanbieter in Winterthur mit Kontaktdaten und Quelle, für Anfragen ohne Inserat |
-| [`emails/ANGEBOTE.md`](emails/ANGEBOTE.md) | individuelle E-Mail-Entwürfe zu jedem Angebot |
-| [`emails/VERWALTUNGEN.md`](emails/VERWALTUNGEN.md) | individuelle E-Mail-Entwürfe an jede Verwaltung/Genossenschaft |
-| `data/angebote.json`, `data/verwaltungen.json` | Datenbasis (hier den **Status** pflegen) |
-| `data/seen.json` | Duplikat-Schutz für den Monitor: bereits gesehene Inserate |
-| `scraper/` | Flatfox-Abfrage, Filter und Monitor für neue Angebote |
-| `scripts/build.py` | erzeugt die Markdown-Listen und E-Mails aus den JSON-Daten |
-| `monitoring/github-actions-monitor.yml` | **Vorlage**, noch nicht aktiv (siehe unten) |
-
-## Status pflegen (kontaktiert, Antwort, …)
-
-In `data/angebote.json` bzw. `data/verwaltungen.json` beim Eintrag `"status"` setzen auf
-`offen` · `kontaktiert` · `antwort` · `besichtigung` · `zugesagt` · `abgesagt` · `vergeben`,
-dann `python3 scripts/build.py` ausführen. Abgesagte oder vergebene Einträge verschwinden aus den E-Mail-Listen.
-
-## E-Mails personalisieren
-
-```bash
-cp profil.example.json profil.json   # Name, Telefon, E-Mail, Hobby eintragen (bleibt lokal)
-python3 scripts/build.py
-```
-
-## Neue Angebote überwachen
-
-`python3 scraper/monitor.py` prüft:
-
-- **Flatfox-API**: alle Kategorien Nebenraum, Gewerbe und Parkieren im 10-km-Radius, gefiltert auf Hobby/Bastel/Lager/Atelier/Werkstatt sowie kleine, günstige Gewerberäume. Flatfox spiegelt auch einen Teil der Homegate- und ImmoScout24-Inserate.
-- **Websites ohne Portal-Inserat**: Gesewo, Terresta, L+B, HGW, Gewerbehaus Passant
-
-Jedes neue Angebot wird **einzeln und sofort** gemeldet, Tageszusammenfassungen gibt es keine. Mögliche Kanäle sind ntfy-Push, Telegram, E-Mail oder ein GitHub-Issue.
-Duplikate werden über die Inserat-ID **und** über Adresse + Fläche + Preis erkannt, damit ein neu aufgeschaltetes Inserat keinen zweiten Alarm auslöst.
-
-**Grenzen:** Homegate, ImmoScout24, Comparis, Newhome und Tutti blockieren automatisierte Abrufe per Bot-Schutz. Dieser wird nicht umgangen.
-Für diese Portale sind die **eigenen Suchabos der Portale** der zuverlässige und erlaubte Weg (siehe Vorschlag im Chat).
+| `index.html`, `.nojekyll` | die Webseite (GitHub Pages, Branch-Root) |
+| `data/angebote.json`, `data/verwaltungen.json` | Angebote und Verwaltungen (Kontaktdaten mit Quellenangabe) |
+| `data/status.json` | dein Status pro Eintrag (von der Webseite geschrieben) |
+| `data/meta.json`, `data/seen.json` | Prüfstatus und Duplikat-Schutz |
+| [`ANGEBOTE.md`](ANGEBOTE.md), [`VERWALTUNGEN.md`](VERWALTUNGEN.md), [`emails/`](emails/) | dieselben Daten und E-Mail-Entwürfe als Text |
+| `scraper/`, `scripts/build.py` | Prüfung und Listen-Generator |
+| `web/hobbyraum-radar.html` | frühere Claude-Version der Seite (nicht mehr aktiv) |

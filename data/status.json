@@ -1,0 +1,5 @@
+{
+ "_info": "Status pro Eintrag, von der Webseite gepflegt (mit GitHub-Schlüssel). Überschreibt den Status in angebote.json/verwaltungen.json.",
+ "angebote": {},
+ "verwaltungen": {}
+}

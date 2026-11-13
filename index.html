@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hobbyraum-Radar Winterthur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: eine ruhige Arbeitsspalte – Kopf mit Prüfstatus, Zähler als Filter, dann Zeilen wie ein Mieterspiegel (Preis | Objekt | Aktion). */
+:root {
+  --bg: #eef0ee;
+  --surface: #ffffff;
+  --sunken: #e4e8e5;
+  --ink: #18201e;
+  --muted: #5b6662;
+  --line: #d3d9d5;
+  --accent: #1d5c6d;
+  --accent-ink: #ffffff;
+  --new: #c47f06;
+  --new-bg: #fdf3dc;
+  --warn: #9a4b0d;
+  --warn-bg: #fbeadb;
+  --ok: #2c7a4b;
+  --ok-bg: #e2f2e7;
+  --info: #2a5b9c;
+  --info-bg: #e3ecf8;
+  --bad: #9b2f2f;
+  --bad-bg: #f6e3e3;
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111615; --surface: #192120; --sunken: #212a28; --ink: #e5ebe8; --muted: #9aa6a1; --line: #2d3734;
+  --accent: #74b5c6; --accent-ink: #0d1716; --new: #f0b64a; --new-bg: #3a2c10; --warn: #f2a46a; --warn-bg: #3b2414;
+  --ok: #7fd09c; --ok-bg: #173323; --info: #92b6ea; --info-bg: #1a2a40; --bad: #ef9a9a; --bad-bg: #3a1c1c; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111615; --surface: #192120; --sunken: #212a28; --ink: #e5ebe8; --muted: #9aa6a1; --line: #2d3734;
+  --accent: #74b5c6; --accent-ink: #0d1716; --new: #f0b64a; --new-bg: #3a2c10; --warn: #f2a46a; --warn-bg: #3b2414;
+  --ok: #7fd09c; --ok-bg: #173323; --info: #92b6ea; --info-bg: #1a2a40; --bad: #ef9a9a; --bad-bg: #3a1c1c; color-scheme: dark }
+
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 28px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: 1.15rem; font-weight: 700; }
+a { color: var(--accent); }
+button, select, input, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Kopf */
+.head { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: flex-end; justify-content: space-between; }
+.sub { color: var(--muted); margin-top: 4px; }
+.check { display: grid; gap: 2px; justify-items: end; text-align: right; font-size: 0.86rem; color: var(--muted); }
+.check strong { color: var(--ink); font-weight: 600; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); margin-right: 6px; vertical-align: 1px; }
+.dot.stale { background: var(--warn); }
+
+/* Zähler */
+.counts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.count { display: inline-flex; align-items: baseline; gap: 6px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--surface); cursor: pointer; }
+.count b { font-family: var(--font-display); font-size: 1.05rem; }
+.count[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.count.is-new b { color: var(--new); }
+.count[aria-pressed="true"].is-new b { color: var(--new); }
+
+/* Tabs */
+.tabs { display: flex; gap: 4px; margin-top: 26px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+.tab { background: none; border: 0; padding: 10px 14px; border-bottom: 3px solid transparent; cursor: pointer; color: var(--muted);
+  font-weight: 600; white-space: nowrap; }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+
+/* Neu-Block */
+.newbox { margin-top: 22px; border: 1px solid var(--new); background: var(--new-bg); border-radius: var(--r); padding: 14px 16px; display: grid; gap: 10px; }
+.newbox-head { display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between; align-items: center; }
+.newbox.empty { border-style: dashed; border-color: var(--line); background: transparent; color: var(--muted); }
+
+/* Filter */
+.filters { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: end; margin-top: 20px; }
+.field { display: grid; gap: 3px; font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.field select, .field input[type="search"] { text-transform: none; letter-spacing: 0; font-size: 0.95rem; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; min-width: 0; }
+.field input[type="search"] { width: 210px; max-width: 100%; }
+.toggle { display: inline-flex; gap: 8px; align-items: center; font-size: 0.92rem; padding-bottom: 8px; }
+.result-note { color: var(--muted); font-size: 0.88rem; margin-top: 14px; }
+
+/* Zeilen */
+.list { display: grid; gap: 10px; margin-top: 10px; }
+.row { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px;
+  display: grid; grid-template-columns: 128px minmax(0, 1fr) 190px; gap: 8px 18px; }
+.row.is-new { border-color: var(--new); box-shadow: inset 4px 0 0 var(--new); }
+.row.is-done { opacity: 0.62; }
+.price { display: grid; align-content: start; gap: 2px; }
+.price .chf { font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; line-height: 1.1; }
+.price .per { color: var(--muted); font-size: 0.82rem; }
+.price .meta { color: var(--muted); font-size: 0.86rem; }
+.obj { min-width: 0; display: grid; gap: 4px; align-content: start; }
+.addr { font-weight: 600; }
+.title { color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+.chip { font-size: 0.76rem; padding: 2px 8px; border-radius: 999px; background: var(--sunken); color: var(--ink); }
+.chip.top { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.chip.new { background: var(--new); color: #1a1405; font-weight: 700; letter-spacing: 0.05em; }
+.chip.warn { background: var(--warn-bg); color: var(--warn); }
+.who { font-size: 0.88rem; color: var(--muted); }
+.note { font-size: 0.86rem; color: var(--muted); }
+.actions { display: grid; gap: 8px; align-content: start; }
+.status { width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; background: var(--surface); font-weight: 600; }
+.status[data-s="neu"] { background: var(--new-bg); color: var(--new); border-color: var(--new); }
+.status[data-s="kontaktiert"], .status[data-s="antwort"] { background: var(--info-bg); color: var(--info); }
+.status[data-s="besichtigung"], .status[data-s="zugesagt"] { background: var(--ok-bg); color: var(--ok); }
+.status[data-s="abgesagt"], .status[data-s="vergeben"] { background: var(--bad-bg); color: var(--bad); }
+.btn { display: inline-flex; justify-content: center; align-items: center; gap: 6px; border-radius: 8px; padding: 7px 12px; border: 1px solid var(--line);
+  background: var(--surface); cursor: pointer; text-decoration: none; color: var(--ink); font-weight: 500; font-size: 0.92rem; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.small { padding: 4px 10px; font-size: 0.84rem; }
+.btnrow { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* E-Mail-Panel */
+.mail { grid-column: 1 / -1; border-top: 1px dashed var(--line); padding-top: 12px; display: grid; gap: 10px; }
+.mail .kv { display: grid; grid-template-columns: 80px minmax(0, 1fr) auto; gap: 8px; align-items: center; }
+.mail .kv span:first-child { color: var(--muted); font-size: 0.84rem; }
+.mail .val { overflow-wrap: anywhere; font-weight: 500; }
+.mail textarea { width: 100%; min-height: 260px; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; background: var(--bg);
+  line-height: 1.5; resize: vertical; box-sizing: border-box; }
+.hint { font-size: 0.84rem; color: var(--muted); }
+.hint.warn { color: var(--warn); }
+
+/* Profil */
+.form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px; margin-top: 18px; max-width: 760px; }
+.form label { display: grid; gap: 4px; font-size: 0.86rem; color: var(--muted); }
+.form input, .form textarea { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; background: var(--surface); color: var(--ink); font-size: 0.95rem; }
+.form .wide { grid-column: 1 / -1; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; margin-top: 20px; }
+.panel p { margin: 6px 0 0; max-width: 65ch; }
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); background: var(--ink); color: var(--bg);
+  padding: 8px 14px; border-radius: 8px; font-size: 0.9rem; z-index: 20; }
+.loading { color: var(--muted); padding: 20px 0; }
+
+@media (max-width: 760px) {
+  .row { grid-template-columns: minmax(0, 1fr); }
+  .price { grid-template-columns: auto auto 1fr; align-items: baseline; gap: 4px 8px; }
+  .price .meta { grid-column: 1 / -1; }
+  .actions { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; }
+  .actions .status { grid-column: 1 / -1; }
+  .check { justify-items: start; text-align: left; }
+  .form { grid-template-columns: minmax(0, 1fr); }
+  .mail .kv { grid-template-columns: minmax(0, 1fr) auto; }
+  .mail .kv span:first-child { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: no-preference) { .row { transition: border-color .2s ease, opacity .2s ease; } }
+</style>
+<style>
+html { color-scheme: light; -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+[hidden] { display: none !important; }
+code { font-size: 0.9em; background: var(--sunken); padding: 1px 5px; border-radius: 4px; }
+.panel h2 + p, .panel p + details, .panel details + form { margin-top: 10px; }
+.howto { margin-top: 12px; font-size: 0.92rem; }
+.howto summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+.howto ol { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 4px; max-width: 70ch; }
+.syncform { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: end; margin-top: 14px; }
+.syncform .field input { min-width: 0; width: 320px; max-width: 100%; text-transform: none; letter-spacing: 0; font-size: 0.95rem; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; }
+#syncmsg { margin-top: 8px; }
+.foot { margin-top: 40px; color: var(--muted); font-size: 0.84rem; max-width: 80ch; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <div>
+      <h1>Hobbyraum-Radar</h1>
+      <div class="sub">Bastel-, Hobby- und Lagerräume · Winterthur, 10 km um Neuwiesen/Lind</div>
+    </div>
+    <div class="check" id="check"><span><span class="dot stale"></span>Prüfstatus wird geladen …</span></div>
+  </header>
+
+  <div class="counts" id="counts" role="group" aria-label="Nach Status filtern"></div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-angebote" aria-selected="true" data-tab="angebote">Angebote</button>
+    <button class="tab" role="tab" id="tab-verwaltungen" aria-selected="false" data-tab="verwaltungen">Verwaltungen &amp; Genossenschaften</button>
+    <button class="tab" role="tab" id="tab-profil" aria-selected="false" data-tab="profil">Einstellungen</button>
+  </nav>
+
+  <section id="view-angebote">
+    <div id="newbox"></div>
+    <div class="filters">
+      <label class="field">Suche<input type="search" id="q" placeholder="Strasse, Anbieter …"></label>
+      <label class="field">Max. Miete
+        <select id="maxchf"><option value="">alle</option><option value="150">bis CHF 150</option><option value="250">bis CHF 250</option><option value="400">bis CHF 400</option><option value="750">bis CHF 750</option></select>
+      </label>
+      <label class="field">Distanz
+        <select id="maxkm"><option value="">bis 10 km</option><option value="2">bis 2 km</option><option value="5">bis 5 km</option></select>
+      </label>
+      <label class="field">Sortierung
+        <select id="sort"><option value="empf">Empfehlung</option><option value="preis">Preis</option><option value="km">Distanz</option><option value="neu">Neueste zuerst</option></select>
+      </label>
+      <label class="toggle"><input type="checkbox" id="hidedone" checked> Abgesagte/vergebene ausblenden</label>
+    </div>
+    <div class="result-note" id="resnote"></div>
+    <div class="list" id="list"><div class="loading">Angebote werden geladen …</div></div>
+  </section>
+
+  <section id="view-verwaltungen" hidden>
+    <div class="panel">
+      <h2>Direkt anfragen, auch ohne Inserat</h2>
+      <p>Viele Bastelräume werden nie ausgeschrieben. Diese Verwaltungen und Genossenschaften in Winterthur kannst du direkt anschreiben oder anrufen. Bei jedem Eintrag steht, woher die Kontaktdaten stammen.</p>
+    </div>
+    <div class="list" id="vlist"><div class="loading">Wird geladen …</div></div>
+  </section>
+
+  <section id="view-profil" hidden>
+    <div class="panel">
+      <h2>Status auf allen Geräten</h2>
+      <p id="sync-state">Der Status («kontaktiert», «abgesagt» …) wird in diesem Browser gespeichert. Damit er auf allen Geräten gleich ist, trage einen GitHub-Schlüssel ein. Er wird nur in diesem Browser gespeichert und nur benutzt, um die Datei <code>data/status.json</code> in deinem Repo zu speichern.</p>
+      <details class="howto">
+        <summary>So erstellst du den Schlüssel (2 Minuten)</summary>
+        <ol>
+          <li>Auf GitHub: Profilbild → <b>Settings</b> → <b>Developer settings</b> → <b>Personal access tokens</b> → <b>Fine-grained tokens</b> → <b>Generate new token</b>.</li>
+          <li>Name z. B. «Hobbyraum-Radar», Ablauf nach Wunsch.</li>
+          <li><b>Repository access:</b> «Only select repositories» → <b>Hobbyraum</b>.</li>
+          <li><b>Permissions → Repository permissions → Contents:</b> «Read and write». Sonst nichts.</li>
+          <li>Token kopieren und hier einfügen.</li>
+        </ol>
+      </details>
+      <form class="syncform" id="syncform">
+        <label class="field">GitHub-Schlüssel<input type="password" id="token" autocomplete="off" placeholder="github_pat_…"></label>
+        <div class="btnrow"><button class="btn primary" type="submit">Verbinden</button><button class="btn" type="button" id="unsync">Trennen</button></div>
+      </form>
+      <div class="hint" id="syncmsg"></div>
+    </div>
+
+    <div class="panel">
+      <h2>Angaben für die E-Mail-Entwürfe</h2>
+      <p>Optional. Was du hier einträgst, wird in jeden Entwurf eingesetzt. Die Angaben bleiben in diesem Browser und werden nie ins Repo geschrieben. Ohne Angaben enthalten die Entwürfe Platzhalter in eckigen Klammern.</p>
+    </div>
+    <form class="form" id="pform">
+      <label>Name<input id="p-name" autocomplete="name" placeholder="Vorname Nachname"></label>
+      <label>Telefon<input id="p-telefon" autocomplete="tel" placeholder="079 …"></label>
+      <label>E-Mail<input id="p-email" type="email" autocomplete="email" placeholder="name@beispiel.ch"></label>
+      <label>Budget<input id="p-budget" placeholder="maximal ca. CHF 300 pro Monat"></label>
+      <label class="wide">Wofür du den Raum brauchst<input id="p-hobby" placeholder="z. B. Modellbau, Velo-Werkstatt, Malen"></label>
+      <label class="wide">Art der Nutzung<textarea id="p-nutzung" rows="2"></textarea></label>
+      <label>Mietbeginn<input id="p-start" placeholder="so bald wie möglich"></label>
+      <div class="wide btnrow"><button class="btn primary" type="submit">Angaben speichern</button><span class="hint" id="psaved"></span></div>
+    </form>
+  </section>
+
+  <footer class="foot">Daten: Flatfox-API und Websites von Winterthurer Verwaltungen, automatisch geprüft über GitHub Actions. Inserate von Homegate, ImmoScout24, Comparis und Tutti nur, soweit sie auf Flatfox erscheinen oder von Hand ergänzt wurden.</footer>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function () {
+  "use strict";
+  var REPO = { owner: "manassehthasius", name: "Hobbyraum", branch: "claude/awesome-bohr-8mqu2d" };
+  var STATUS = [
+    ["neu", "Neu"], ["offen", "Offen"], ["kontaktiert", "Kontaktiert"], ["antwort", "Antwort erhalten"],
+    ["besichtigung", "Besichtigung"], ["zugesagt", "Zugesagt"], ["abgesagt", "Abgesagt"], ["vergeben", "Vergeben"]
+  ];
+  var DONE = { abgesagt: 1, vergeben: 1 };
+  var DEFAULT_PROFIL = {
+    name: "", telefon: "", email: "", hobby: "", budget: "maximal ca. CHF 300 pro Monat",
+    nutzung: "Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen.",
+    start: "so bald wie möglich"
+  };
+  var S = { angebote: [], verw: [], meta: null, profil: Object.assign({}, DEFAULT_PROFIL), tab: "angebote",
+            statusFilter: "", openMail: {}, loaded: false,
+            status: { angebote: {}, verwaltungen: {} }, token: "", sha: null };
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function chf(n) { return n == null ? "auf Anfrage" : "CHF " + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"); }
+  function safeUrl(u) { return /^https?:\/\//i.test(u || "") ? u : null; }
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(function () { t.hidden = true; }, 2400); }
+  function store(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function load(k) { try { return JSON.parse(localStorage.getItem(k) || "null"); } catch (e) { return null; } }
+  function unverified(a) { return /^Nur Suchmaschinen/.test(a.verifiziert || ""); }
+  function relTime(iso) {
+    if (!iso) return "–";
+    var diff = (Date.now() - new Date(iso).getTime()) / 60000;
+    if (isNaN(diff)) return "–";
+    var rtf = new Intl.RelativeTimeFormat("de-CH", { numeric: "auto" });
+    if (diff < 60) return rtf.format(-Math.max(1, Math.round(diff)), "minute");
+    if (diff < 60 * 36) return rtf.format(-Math.round(diff / 60), "hour");
+    return rtf.format(-Math.round(diff / 1440), "day");
+  }
+  function fmtDate(iso) { try { return new Date(iso).toLocaleString("de-CH", { dateStyle: "medium", timeStyle: "short" }); } catch (e) { return iso; } }
+
+  // ---------------------------------------------------------------- Status (Browser + optional GitHub)
+  function kindKey(kind) { return kind === "a" ? "angebote" : "verwaltungen"; }
+  function stOf(kind, item) { var o = S.status[kindKey(kind)][item.id]; return o ? o.status : (item.status || "offen"); }
+  function isNew(a) { return stOf("a", a) === "neu"; }
+  function mergeStatus(base, extra) {
+    var out = { angebote: Object.assign({}, base.angebote || {}), verwaltungen: Object.assign({}, base.verwaltungen || {}) };
+    ["angebote", "verwaltungen"].forEach(function (k) {
+      var e = (extra && extra[k]) || {};
+      Object.keys(e).forEach(function (id) { if (!out[k][id] || String(e[id].t || "") > String(out[k][id].t || "")) out[k][id] = e[id]; });
+    });
+    return out;
+  }
+  function b64decode(b) { var bin = atob(b.replace(/\n/g, "")), u = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return new TextDecoder().decode(u); }
+  function b64encode(s) { var u = new TextEncoder().encode(s), bin = ""; for (var i = 0; i < u.length; i++) bin += String.fromCharCode(u[i]); return btoa(bin); }
+  function api(path, opts) {
+    opts = opts || {};
+    opts.headers = Object.assign({ "Accept": "application/vnd.github+json", "Authorization": "Bearer " + S.token }, opts.headers || {});
+    return fetch("https://api.github.com/repos/" + REPO.owner + "/" + REPO.name + path, opts);
+  }
+  function pullRemote() {
+    return api("/contents/data/status.json?ref=" + encodeURIComponent(REPO.branch), { cache: "no-store" }).then(function (r) {
+      if (r.status === 401 || r.status === 403) throw new Error("Schlüssel ungültig oder ohne Schreibrecht");
+      if (!r.ok) throw new Error("GitHub antwortet mit " + r.status);
+      return r.json();
+    }).then(function (j) { S.sha = j.sha; return JSON.parse(b64decode(j.content)); });
+  }
+  var pushing = null, pushAgain = false;
+  function pushRemote() {
+    if (!S.token) return;
+    if (pushing) { pushAgain = true; return; }
+    pushing = pullRemote().then(function (remote) {
+      S.status = mergeStatus(remote, S.status); store("hobbyraum-status", S.status);
+      var body = JSON.stringify({ _info: remote._info || "Status pro Eintrag, von der Webseite gepflegt.", angebote: S.status.angebote, verwaltungen: S.status.verwaltungen }, null, 1);
+      return api("/contents/data/status.json", { method: "PUT", body: JSON.stringify({ message: "Status aktualisiert (Webseite)", content: b64encode(body), sha: S.sha, branch: REPO.branch }) });
+    }).then(function (r) {
+      if (r.status === 409) { pushAgain = true; return; }
+      if (!r.ok) throw new Error("Speichern auf GitHub fehlgeschlagen (" + r.status + ")");
+      return r.json().then(function (j) { S.sha = j.content && j.content.sha; setSyncMsg("Synchronisiert " + fmtDate(new Date().toISOString())); });
+    }).catch(function (e) { setSyncMsg(e.message, true); toast("Nur im Browser gespeichert – " + e.message); })
+      .then(function () { pushing = null; if (pushAgain) { pushAgain = false; setTimeout(pushRemote, 800); } });
+  }
+  function setStatus(kind, id, s) {
+    var arr = kind === "a" ? S.angebote : S.verw, it = null;
+    arr.forEach(function (x) { if (x.id === id) it = x; });
+    if (!it || stOf(kind, it) === s) return;
+    S.status[kindKey(kind)][id] = { status: s, t: new Date().toISOString() };
+    store("hobbyraum-status", S.status); render();
+    if (S.token) pushRemote(); else toast("Status gespeichert (in diesem Browser)");
+  }
+  function setSyncMsg(msg, bad) { var el = $("syncmsg"); el.textContent = msg; el.className = "hint" + (bad ? " warn" : ""); }
+  function renderSync() {
+    $("sync-state").textContent = S.token
+      ? "Verbunden: Der Status wird in data/status.json in deinem Repo gespeichert und ist auf allen Geräten mit diesem Schlüssel gleich."
+      : "Der Status («kontaktiert», «abgesagt» …) wird in diesem Browser gespeichert. Damit er auf allen Geräten gleich ist, trage einen GitHub-Schlüssel ein. Er bleibt in diesem Browser und wird nur benutzt, um data/status.json in deinem Repo zu speichern.";
+    $("token").value = S.token ? "••••••••••••" : "";
+  }
+
+  // ---------------------------------------------------------------- Kopieren
+  function copy(text, label) {
+    function fallback() {
+      var ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
+      var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta); toast(ok ? label + " kopiert" : "Bitte Text markieren und kopieren");
+    }
+    try { navigator.clipboard.writeText(text).then(function () { toast(label + " kopiert"); }, fallback); } catch (e) { fallback(); }
+  }
+
+  // ---------------------------------------------------------------- E-Mail-Texte
+  function P(k, ph) { var v = (S.profil[k] || "").trim(); return v || ph; }
+  function signatur() { return [P("name", "[Vorname Nachname]"), P("telefon", "[Telefonnummer]"), P("email", "[E-Mail-Adresse]")].join("\n"); }
+  function anrede(person) { return person ? "Guten Tag " + person : "Guten Tag"; }
+  function quelle(a) {
+    if (/^flatfox/.test(a.id)) return "Auf Flatfox habe ich";
+    if (/^homegate/.test(a.id)) return "Auf Homegate habe ich";
+    if (/^comparis/.test(a.id)) return "Auf Comparis habe ich";
+    if (/^web:/.test(a.id)) return "Auf Ihrer Website habe ich";
+    return "Ich habe";
+  }
+  function mailAngebot(a) {
+    var betreff = "Anfrage Hobby-/Bastelraum – " + String(a.adresse || "").split(",")[0];
+    var body = anrede(a.kontakt_person) + "\n\n" +
+      quelle(a) + " Ihr Angebot «" + (a.titel || "Hobbyraum") + "» (" + (a.adresse || "") + ") gesehen.\n\n" +
+      (a.frage || "Ist der Raum noch verfügbar? Gerne würde ich ihn besichtigen.") + "\n\n" +
+      "Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für " + P("hobby", "[mein Hobby]") + ". " +
+      P("nutzung", DEFAULT_PROFIL.nutzung) + " Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.\n\n" +
+      "Für eine Besichtigung bin ich zeitlich flexibel. Mietbeginn wäre bei mir " + P("start", DEFAULT_PROFIL.start) + ".\n\n" +
+      "Vielen Dank für Ihre Rückmeldung und freundliche Grüsse\n\n" + signatur();
+    return { an: a.email || "", betreff: betreff, body: body, formular: safeUrl(a.kontaktweg) };
+  }
+  function mailVerw(v) {
+    var betreff = "Anfrage: kleiner Bastel-/Hobbyraum in Winterthur gesucht";
+    var body = anrede(v.kontakt_person) + "\n\n" +
+      "Ich suche in Winterthur – idealerweise im Raum Bahnhof / Lind / Veltheim, maximal einige Kilometer entfernt – einen kleinen Bastel- oder Hobbyraum (ca. 10–30 m², mit Stromanschluss) für " +
+      P("hobby", "[mein Hobby]") + ". " + P("nutzung", DEFAULT_PROFIL.nutzung) + "\n\n" +
+      (v.mail_hinweis || "Ich weiss, dass solche Räume oft gar nicht öffentlich ausgeschrieben werden, deshalb frage ich direkt bei Ihnen nach.") + "\n\n" +
+      "Haben Sie in einer Ihrer Liegenschaften aktuell einen solchen Raum frei, oder wird demnächst einer frei? Ein Keller- oder Lagerraum, ein kleines Atelier oder ein kleiner Gewerberaum kommen ebenfalls in Frage, sofern eine ruhige Hobbynutzung erlaubt ist. Mein Budget beträgt " +
+      P("budget", DEFAULT_PROFIL.budget) + ". Gerne können Sie mich auch auf Ihre Interessentenliste setzen.\n\n" +
+      "Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.\n\n" +
+      "Vielen Dank und freundliche Grüsse\n\n" + signatur();
+    return { an: v.email || "", betreff: betreff, body: body, formular: null };
+  }
+  function mailPanel(key, m, tel) {
+    var hasPh = /\[[^\]]+\]/.test(m.body);
+    var mailto = m.an ? "mailto:" + encodeURIComponent(m.an) + "?subject=" + encodeURIComponent(m.betreff) + "&body=" + encodeURIComponent(m.body) : null;
+    return '<div class="mail" data-mail="' + esc(key) + '">' +
+      (m.an ? '<div class="kv"><span>An</span><span class="val">' + esc(m.an) + '</span><button class="btn small" data-copy="an">Kopieren</button></div>'
+            : '<div class="hint">Keine E-Mail-Adresse bekannt' + (m.formular ? ' – Text ins Kontaktformular einfügen.' : tel ? ' – anrufen: ' + esc(tel) + '.' : '.') + '</div>') +
+      '<div class="kv"><span>Betreff</span><span class="val">' + esc(m.betreff) + '</span><button class="btn small" data-copy="betreff">Kopieren</button></div>' +
+      '<textarea data-body aria-label="E-Mail-Text">' + esc(m.body) + '</textarea>' +
+      (hasPh ? '<div class="hint warn">Platzhalter in [eckigen Klammern] ersetzen – oder einmal unter «Einstellungen» ausfüllen.</div>' : '') +
+      '<div class="btnrow">' + (mailto ? '<a class="btn primary small" href="' + esc(mailto) + '">Im Mailprogramm öffnen</a>' : '') +
+      '<button class="btn small' + (mailto ? '' : ' primary') + '" data-copy="body">Text kopieren</button>' +
+      (m.formular ? '<a class="btn small" href="' + esc(m.formular) + '" target="_blank" rel="noopener">Kontaktformular öffnen</a>' : '') +
+      '</div><div class="hint">Nach dem Senden den Status auf «Kontaktiert» setzen.</div></div>';
+  }
+
+  // ---------------------------------------------------------------- Rendering
+  function statusSelect(kind, id, s) {
+    return '<select class="status" data-kind="' + kind + '" data-id="' + esc(id) + '" data-s="' + esc(s) + '" aria-label="Status">' +
+      STATUS.map(function (x) { return '<option value="' + x[0] + '"' + (x[0] === s ? " selected" : "") + ">" + x[1] + "</option>"; }).join("") + "</select>";
+  }
+  function rowAngebot(a) {
+    var key = "a:" + a.id, link = safeUrl(a.link), st = stOf("a", a);
+    var chips = [];
+    if (st === "neu") chips.push('<span class="chip new">NEU</span>');
+    if (a.prio === 1) chips.push('<span class="chip top">Top</span>');
+    if (a.nutzung) chips.push('<span class="chip">' + esc(a.nutzung) + "</span>");
+    if (a.verfuegbar) chips.push('<span class="chip">verfügbar: ' + esc(a.verfuegbar) + "</span>");
+    if (unverified(a)) chips.push('<span class="chip warn">nicht geprüft – Inserat evtl. offline</span>');
+    var who = [a.anbieter, a.kontakt_person, a.telefon ? "☎ " + a.telefon : null, a.email].filter(Boolean).map(esc).join(" · ");
+    return '<article class="row' + (st === "neu" ? " is-new" : "") + (DONE[st] ? " is-done" : "") + '">' +
+      '<div class="price num"><span class="chf">' + esc(chf(a.chf_monat)) + '</span><span class="per">' + (a.chf_monat != null ? "/Mt." : "") + "</span>" +
+      '<span class="meta">' + (a.m2 ? esc(a.m2) + " m²" : "? m²") + " · " + (a.km != null ? esc(a.km) + " km" : "? km") + "</span></div>" +
+      '<div class="obj"><div class="addr">' + esc(a.adresse) + '</div><div class="title">' + esc(a.titel) + "</div>" +
+      '<div class="chips">' + chips.join("") + "</div>" +
+      (a.preis_text ? '<div class="note">' + esc(a.preis_text) + "</div>" : "") +
+      (a.hinweise ? '<div class="note">' + esc(a.hinweise) + "</div>" : "") +
+      '<div class="who">' + who + "</div></div>" +
+      '<div class="actions">' + statusSelect("a", a.id, st) +
+      (link ? '<a class="btn" href="' + esc(link) + '" target="_blank" rel="noopener">Inserat öffnen</a>' : "") +
+      '<button class="btn" data-toggle="' + esc(key) + '" aria-expanded="' + (S.openMail[key] ? "true" : "false") + '">E-Mail-Entwurf</button></div>' +
+      (S.openMail[key] ? mailPanel(key, mailAngebot(a), a.telefon) : "") + "</article>";
+  }
+  function rowVerw(v) {
+    var key = "v:" + v.id, web = safeUrl(v.web), st = stOf("v", v);
+    var chips = ['<span class="chip">' + esc(v.art) + "</span>"];
+    if (v.tipp) chips.push('<span class="chip">' + esc(v.tipp) + "</span>");
+    return '<article class="row' + (DONE[st] ? " is-done" : "") + '">' +
+      '<div class="price"><span class="meta">' + esc(v.adresse) + "</span></div>" +
+      '<div class="obj"><div class="addr">' + esc(v.name) + "</div>" +
+      '<div class="chips">' + chips.join("") + "</div>" +
+      '<div class="who num">' + [v.kontakt_person, v.telefon ? "☎ " + v.telefon : null, v.email || "keine E-Mail gefunden"].filter(Boolean).map(esc).join(" · ") + "</div>" +
+      '<div class="note">Quelle: ' + esc(v.quelle) + "</div></div>" +
+      '<div class="actions">' + statusSelect("v", v.id, st) +
+      (web ? '<a class="btn" href="' + esc(web) + '" target="_blank" rel="noopener">Website</a>' : "") +
+      '<button class="btn" data-toggle="' + esc(key) + '" aria-expanded="' + (S.openMail[key] ? "true" : "false") + '">E-Mail-Entwurf</button></div>' +
+      (S.openMail[key] ? mailPanel(key, mailVerw(v), v.telefon) : "") + "</article>";
+  }
+  function filtered() {
+    var q = $("q").value.trim().toLowerCase(), maxchf = +$("maxchf").value || 0, maxkm = +$("maxkm").value || 0, hide = $("hidedone").checked;
+    var list = S.angebote.filter(function (a) {
+      var st = stOf("a", a);
+      if (S.statusFilter && st !== S.statusFilter) return false;
+      if (!S.statusFilter && hide && DONE[st]) return false;
+      if (maxchf && (a.chf_monat == null || a.chf_monat > maxchf)) return false;
+      if (maxkm && (a.km == null || a.km > maxkm)) return false;
+      if (q && [a.adresse, a.titel, a.anbieter, a.nutzung, a.hinweise].join(" ").toLowerCase().indexOf(q) < 0) return false;
+      return true;
+    });
+    var s = $("sort").value;
+    list.sort(function (x, y) {
+      var px = x.chf_monat == null ? 1e9 : x.chf_monat, py = y.chf_monat == null ? 1e9 : y.chf_monat;
+      if (s === "preis") return px - py;
+      if (s === "km") return (x.km == null ? 99 : x.km) - (y.km == null ? 99 : y.km);
+      if (s === "neu") return String(y.entdeckt || "").localeCompare(String(x.entdeckt || "")) || px - py;
+      return (isNew(y) - isNew(x)) || ((x.prio || 9) - (y.prio || 9)) || (unverified(x) - unverified(y)) || px - py;
+    });
+    return list;
+  }
+  function renderCounts() {
+    var c = {}; S.angebote.forEach(function (a) { var st = stOf("a", a); c[st] = (c[st] || 0) + 1; });
+    var items = [["", "Alle", S.angebote.length]].concat(STATUS.filter(function (x) { return c[x[0]] || x[0] === "neu"; }).map(function (x) { return [x[0], x[1], c[x[0]] || 0]; }));
+    $("counts").innerHTML = items.map(function (x) {
+      return '<button class="count' + (x[0] === "neu" ? " is-new" : "") + '" data-status="' + x[0] + '" aria-pressed="' + (S.statusFilter === x[0]) + '"><b class="num">' + x[2] + "</b>" + esc(x[1]) + "</button>";
+    }).join("");
+  }
+  function renderNewBox() {
+    var box = $("newbox");
+    if (!S.loaded) { box.innerHTML = ""; return; }
+    var nw = S.angebote.filter(isNew);
+    if (!nw.length) {
+      box.innerHTML = '<div class="newbox empty">Keine neuen Angebote. Die Prüfung läuft alle 30 Minuten; neue Treffer erscheinen hier gelb markiert.</div>';
+      return;
+    }
+    box.innerHTML = '<div class="newbox"><div class="newbox-head"><h2>' + nw.length + (nw.length === 1 ? " neues Angebot" : " neue Angebote") + '</h2>' +
+      '<button class="btn small" id="seenall">Alle als gesehen markieren</button></div>' +
+      '<div class="hint" style="color:var(--ink)">' + nw.map(function (a) { return esc(a.adresse) + " · " + esc(chf(a.chf_monat)) + (a.entdeckt ? " · gefunden " + esc(relTime(a.entdeckt)) : ""); }).join("<br>") + "</div></div>";
+  }
+  function renderCheck() {
+    var m = S.meta, el = $("check");
+    if (!m || !m.letzte_pruefung) {
+      el.innerHTML = '<span><span class="dot stale"></span>Noch kein automatischer Prüflauf</span><span>Stand der Liste: 13.11.2026</span>';
+      return;
+    }
+    var age = (Date.now() - new Date(m.letzte_pruefung).getTime()) / 3600000;
+    el.innerHTML = '<span><span class="dot' + (age > 2 ? " stale" : "") + '"></span>Zuletzt geprüft <strong>' + esc(relTime(m.letzte_pruefung)) + "</strong></span>" +
+      '<span class="num">' + esc(fmtDate(m.letzte_pruefung)) + (m.intervall ? " · " + esc(m.intervall) : "") + "</span>" +
+      (m.letzter_fund ? "<span>Letzter Fund: " + esc(relTime(m.letzter_fund)) + "</span>" : "");
+  }
+  function render() {
+    renderCounts(); renderCheck();
+    if (S.tab === "angebote") {
+      renderNewBox();
+      if (!S.loaded) return;
+      var list = filtered();
+      $("resnote").textContent = list.length + " von " + S.angebote.length + " Angeboten · Preise inkl. Nebenkosten, soweit bekannt · Distanz Luftlinie";
+      $("list").innerHTML = list.length ? list.map(rowAngebot).join("") : '<div class="loading">Keine Angebote für diese Filter.</div>';
+    } else if (S.tab === "verwaltungen") {
+      if (!S.loaded) return;
+      var v = S.verw.slice().sort(function (x, y) { return (DONE[stOf("v", x)] ? 1 : 0) - (DONE[stOf("v", y)] ? 1 : 0) || (!!y.email - !!x.email) || String(x.name).localeCompare(String(y.name)); });
+      $("vlist").innerHTML = v.map(rowVerw).join("");
+    }
+  }
+
+  // ---------------------------------------------------------------- Interaktion
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest("button, a"); if (!t) return;
+    if (t.dataset.tab) {
+      S.tab = t.dataset.tab;
+      document.querySelectorAll(".tab").forEach(function (b) { b.setAttribute("aria-selected", String(b === t)); });
+      ["angebote", "verwaltungen", "profil"].forEach(function (k) { $("view-" + k).hidden = k !== S.tab; });
+      render(); return;
+    }
+    if (t.classList.contains("count")) {
+      S.statusFilter = S.statusFilter === t.dataset.status ? "" : t.dataset.status;
+      if (S.tab !== "angebote") $("tab-angebote").click(); else render(); return;
+    }
+    if (t.dataset.toggle) { S.openMail[t.dataset.toggle] = !S.openMail[t.dataset.toggle]; render(); return; }
+    if (t.dataset.copy) {
+      var panel = t.closest(".mail"), key = panel.dataset.mail, item = findItem(key);
+      if (!item) return;
+      var m = key[0] === "a" ? mailAngebot(item) : mailVerw(item);
+      if (t.dataset.copy === "body") copy(panel.querySelector("[data-body]").value, "Text");
+      else copy(m[t.dataset.copy], t.dataset.copy === "an" ? "Adresse" : "Betreff");
+      return;
+    }
+    if (t.id === "seenall") {
+      var now = new Date().toISOString();
+      S.angebote.filter(isNew).forEach(function (a) { S.status.angebote[a.id] = { status: "offen", t: now }; });
+      store("hobbyraum-status", S.status); render(); if (S.token) pushRemote();
+      return;
+    }
+    if (t.id === "unsync") { S.token = ""; store("hobbyraum-token", null); renderSync(); setSyncMsg("Getrennt. Der Status wird nur noch in diesem Browser gespeichert."); }
+  });
+  document.addEventListener("change", function (e) {
+    var t = e.target;
+    if (t.classList.contains("status")) { setStatus(t.dataset.kind, t.dataset.id, t.value); return; }
+    if (["maxchf", "maxkm", "sort", "hidedone"].indexOf(t.id) >= 0) render();
+  });
+  $("q").addEventListener("input", render);
+  function findItem(key) {
+    var id = key.slice(2), arr = key[0] === "a" ? S.angebote : S.verw;
+    for (var i = 0; i < arr.length; i++) if (arr[i].id === id) return arr[i];
+    return null;
+  }
+  $("syncform").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = $("token").value.trim();
+    if (!v || /^•+$/.test(v)) { setSyncMsg("Bitte den Schlüssel einfügen.", true); return; }
+    S.token = v; setSyncMsg("Verbinde …");
+    pullRemote().then(function (remote) {
+      store("hobbyraum-token", v);
+      S.status = mergeStatus(remote, S.status); store("hobbyraum-status", S.status);
+      renderSync(); render(); setSyncMsg("Verbunden. Der Status wird jetzt auf allen Geräten gespeichert.");
+      pushRemote();
+    }).catch(function (err) { S.token = ""; setSyncMsg("Verbindung fehlgeschlagen: " + err.message, true); });
+  });
+  function fillProfil() {
+    ["name", "telefon", "email", "budget", "hobby", "nutzung", "start"].forEach(function (k) { $("p-" + k).value = S.profil[k] || ""; });
+  }
+  $("pform").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var p = {}; ["name", "telefon", "email", "budget", "hobby", "nutzung", "start"].forEach(function (k) { p[k] = $("p-" + k).value.trim(); });
+    S.profil = Object.assign({}, DEFAULT_PROFIL, p); store("hobbyraum-profil", p);
+    $("psaved").textContent = "Gespeichert (nur in diesem Browser)."; render();
+  });
+
+  // ---------------------------------------------------------------- Laden
+  var lp = load("hobbyraum-profil"); if (lp) S.profil = Object.assign({}, DEFAULT_PROFIL, lp);
+  S.status = mergeStatus({ angebote: {}, verwaltungen: {} }, load("hobbyraum-status") || {});
+  S.token = load("hobbyraum-token") || "";
+  fillProfil(); renderSync(); render();
+
+  function getJSON(path) {
+    return fetch(path + "?t=" + Date.now(), { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(path + ": " + r.status); return r.json(); });
+  }
+  function refresh() {
+    return Promise.all([getJSON("data/angebote.json"), getJSON("data/verwaltungen.json"), getJSON("data/meta.json").catch(function () { return null; }),
+                        S.token ? pullRemote().catch(function () { return getJSON("data/status.json"); }) : getJSON("data/status.json").catch(function () { return {}; })])
+      .then(function (r) {
+        S.angebote = r[0].angebote || []; S.verw = r[1].verwaltungen || []; S.meta = r[2];
+        S.status = mergeStatus(r[3] || {}, S.status); store("hobbyraum-status", S.status);
+        S.loaded = true; render();
+      });
+  }
+  refresh().catch(function (e) {
+    $("list").innerHTML = '<div class="loading">Die Daten konnten nicht geladen werden (' + esc(e.message) + '). Bitte später neu laden.</div>';
+  });
+  setInterval(function () { if (document.visibilityState === "visible") refresh().catch(function () {}); }, 5 * 60000);
+  setInterval(renderCheck, 60000);
+})();
+</script>
+</body>
+</html>
