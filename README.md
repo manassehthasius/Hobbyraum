@@ -5,6 +5,14 @@ Ziel: so schnell wie möglich einen **günstigen Hobby-/Bastelraum** im Umkreis 
 > **Datenschutz:** Dieses Repo ist **öffentlich**. Deshalb stehen hier weder die exakte Adresse noch Name, Telefon oder E-Mail.
 > Persönliche Angaben gehören nur in `profil.json`, die per `.gitignore` nie committet wird.
 
+## Webseite «Hobbyraum-Radar»
+
+Private Seite auf claude.ai: https://claude.ai/artifact/XapS53q2M7veruPetJk3iL
+Dort sind alle Angebote und Verwaltungen zu sehen. Neue Treffer stehen oben und sind gelb markiert. Den Status setzt du per Auswahlfeld, und auf Wunsch gibt es zu jedem Eintrag einen E-Mail-Entwurf.
+Deine Angaben für die Entwürfe (Tab «E-Mail-Angaben») sind nur für dich sichtbar.
+Quelltext: `web/hobbyraum-radar.html`. Daten: Datenbank der Seite (`angebote`, `verwaltungen`, `meta/status`, `meta/seen`).
+Der Prüflauf liest die Skripte unter `monitor/*.py` der Seite, startet `monitor.py --seen-file … --out …` und schreibt neue Treffer in die Datenbank.
+
 ## Inhalt
 
 | Datei | Zweck |

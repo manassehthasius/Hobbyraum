@@ -9,12 +9,16 @@ Benachrichtigung (optional, über Umgebungsvariablen):
   SMTP_HOST/SMTP_USER/SMTP_PASS/MAIL_TO -> E-Mail
   GITHUB_ISSUE=1 (+ GITHUB_TOKEN, GITHUB_REPOSITORY, GH_MENTION) -> GitHub-Issue pro Fund
 Aufruf:  python3 scraper/monitor.py [--dry-run] [--seed]
+Webseiten-Modus (für den Claude-Prüflauf, ohne Repo):
+         python3 monitor.py --seen-file seen.json --out neu.json
+         -> schreibt neue Angebote als JSON-Liste nach neu.json und aktualisiert seen.json; sendet nichts.
 """
 import argparse, datetime, hashlib, html, json, os, pathlib, re, smtplib, sys, time, urllib.parse, urllib.request
 from email.message import EmailMessage
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "scraper"))
+HERE = pathlib.Path(__file__).resolve().parent
+ROOT = HERE.parent
+sys.path.insert(0, str(HERE))
 import flatfox                      # noqa: E402
 from filter import is_candidate, normalize  # noqa: E402
 
@@ -137,6 +141,18 @@ def notify(r, dry):
                                      headers={"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}", "Accept": "application/vnd.github+json"})
         urllib.request.urlopen(req, timeout=20)
 
+def to_doc(r, now):
+    """Einheitliches Datenformat (wie data/angebote.json) plus Zeitpunkt der Entdeckung."""
+    return {
+        "id": r["id"], "status": "neu", "prio": 2, "verifiziert": f"Monitor {now[:10]}", "entdeckt": now,
+        "titel": r.get("titel"), "typ": r.get("typ"), "adresse": r.get("adresse") or r.get("quelle"), "km": r.get("km"),
+        "chf_monat": r.get("chf_monat"), "preis_text": None, "m2": r.get("m2"), "verfuegbar": r.get("verfuegbar"),
+        "anbieter": r.get("anbieter") or r.get("quelle"), "kontakt_person": None, "telefon": None, "email": None,
+        "kontaktweg": r.get("kontaktformular"), "link": r["link"], "weitere_links": [],
+        "nutzung": None, "hinweise": (r.get("beschreibung") or "")[:400] or None,
+        "frage": "Ist dieser Raum noch verfügbar, und wäre eine ruhige Hobbynutzung möglich? Gerne würde ich ihn besichtigen.",
+        "publiziert": r.get("publiziert")}
+
 def add_to_list(found):
     d = load(ANGEBOTE, None)
     if not d:
@@ -160,8 +176,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="nichts senden, nur anzeigen")
     ap.add_argument("--seed", action="store_true", help="aktuellen Stand als bekannt markieren, nichts melden")
+    ap.add_argument("--seen-file", help="eigene Datei für gesehene IDs (Webseiten-Modus)")
+    ap.add_argument("--out", help="neue Angebote als JSON-Liste in diese Datei schreiben, nichts senden")
     a = ap.parse_args()
-    seen = load(SEEN, {})
+    seen_path = pathlib.Path(a.seen_file) if a.seen_file else SEEN
+    seen = load(seen_path, {})
+    if isinstance(seen, list):
+        seen = {k: 1 for k in seen}
     known = load(ANGEBOTE, {"angebote": [], "ausgeschlossen": []})
     for x in known["angebote"] + known.get("ausgeschlossen", []):   # bereits erfasste/ausgeschlossene nie neu melden
         seen.setdefault(x["id"], 1)
@@ -175,7 +196,13 @@ def main():
             found += check_site(site, seen)
         except Exception as e:
             print(f"{site['name']}-Fehler:", e, file=sys.stderr)
-    SEEN.write_text(json.dumps(seen, ensure_ascii=False, indent=0, sort_keys=True))
+    seen_path.write_text(json.dumps(seen, ensure_ascii=False, indent=0, sort_keys=True))
+    if a.out:
+        now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+        docs = [to_doc(r, now) for r in found]
+        pathlib.Path(a.out).write_text(json.dumps(docs, ensure_ascii=False, indent=1))
+        print(f"{len(docs)} neue(s) Angebot(e) -> {a.out}")
+        return
     if a.seed:
         print(f"Seed: {len(seen)} IDs als bekannt markiert, {len(found)} würden sonst gemeldet.")
         return
