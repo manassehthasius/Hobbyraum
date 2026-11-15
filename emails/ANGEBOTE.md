@@ -3,6 +3,30 @@
 Platzhalter in `[…]` werden automatisch ersetzt, sobald `profil.json` (Kopie von `profil.example.json`, wird **nicht** committet) ausgefüllt ist und `python3 scripts/build.py` läuft.
 Bei Flatfox-Inseraten den Text ins **Kontaktformular** kopieren (die Verwaltungen geben dort meist keine E-Mail an).
 
+## ⬜ offen · Zürcherstrasse 12 / Schützenstrasse 3, 8400 Winterthur · CHF 79
+
+**Kanal:** [Kontaktformular](https://www.maison.work/en/ch/rent/storage_room/winterthur/41311)
+
+**Betreff:** Anfrage Hobby-/Bastelraum – Zürcherstrasse 12 / Schützenstrasse 3
+
+```text
+Guten Tag Francesca Giovanniello
+
+Ich habe Ihr Angebot «Kleine Lagerräume beim Bahnhof (6–35 m²)» (Zürcherstrasse 12 / Schützenstrasse 3, 8400 Winterthur) gesehen.
+
+Auf maison.work habe ich gesehen, dass Sie beim Bahnhof Winterthur kleine Lagerräume vermieten, zum Beispiel 9 m² an der Schützenstrasse 3 oder 15 m² an der Zürcherstrasse 12. Wäre in einem dieser Räume auch eine ruhige Nutzung als Bastelraum erlaubt? Gibt es dort Strom?
+
+Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
+
+Für eine Besichtigung bin ich zeitlich flexibel. Mietbeginn wäre bei mir so bald wie möglich.
+
+Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
+
+[Vorname Nachname]
+[Telefonnummer]
+[E-Mail-Adresse]
+```
+
 ## ⬜ offen · Wässerwiesenstrasse 79b, 8408 Winterthur · CHF 90
 
 **Kanal:** [Kontaktformular](https://flatfox.ch/de/listing/86383037/submit/)
@@ -111,6 +135,30 @@ Guten Tag
 Auf Flatfox habe ich Ihr Angebot «Hobbyraum oder Bastelraum» (Brünnelihöhestrasse 1, 8400 Winterthur) gesehen.
 
 Der Hobby-/Bastelraum an der Brünnelihöhestrasse 1 (13 m², EG, mit Strom) passt sehr gut zu dem, was ich suche. Ist er noch frei, und wann könnte ich ihn besichtigen?
+
+Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
+
+Für eine Besichtigung bin ich zeitlich flexibel. Mietbeginn wäre bei mir so bald wie möglich.
+
+Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
+
+[Vorname Nachname]
+[Telefonnummer]
+[E-Mail-Adresse]
+```
+
+## ⬜ offen · Römerstrasse 101, 8404 Winterthur (Oberwinterthur) · CHF 170
+
+**An:** info@livit.ch · alternativ [Kontaktformular](https://storabble.com/en/listing/bastelraum-in-oberwinterthur-19437) · ☎ 058 360 33 33 (Zentrale)
+
+**Betreff:** Anfrage Hobby-/Bastelraum – Römerstrasse 101
+
+```text
+Guten Tag Philomena Egli
+
+Auf Homegate habe ich Ihr Angebot «Bastelraum ca. 15 m² im EG mit Tageslicht» (Römerstrasse 101, 8404 Winterthur (Oberwinterthur)) gesehen.
+
+Ist der Bastelraum an der Römerstrasse 101 (ca. 15 m², EG, mit Tageslicht) noch verfügbar? Ich würde ihn für ruhige Hobbyarbeiten nutzen.
 
 Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
 
@@ -243,18 +291,18 @@ Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
 [E-Mail-Adresse]
 ```
 
-## ⬜ offen · Alte Winterthurerstrasse 210, 8309 Nürensdorf · CHF 170
+## ⬜ offen · Else-Züblin-Strasse 76, 8404 Winterthur (Neuhegi) · CHF 155
 
-**Kanal:** [Kontaktformular](https://flatfox.ch/de/listing/86482615/submit/) · ☎ 044 833 63 27
+**Kanal:** [Kontaktformular](https://storabble.com/en/listing/10-9m2-lagerraum-winterthur-else-zublin-strasse-76-7333)
 
-**Betreff:** Anfrage Hobby-/Bastelraum – Alte Winterthurerstrasse 210
+**Betreff:** Anfrage Hobby-/Bastelraum – Else-Züblin-Strasse 76
 
 ```text
 Guten Tag
 
-Auf Flatfox habe ich Ihr Angebot «Zusätzlicher Stauraum in Nürensdorf - Hobbyraum zu vermieten» (Alte Winterthurerstrasse 210, 8309 Nürensdorf) gesehen.
+Ich habe Ihr Angebot «Lagerraum 10.9 m², 24/7 zugänglich» (Else-Züblin-Strasse 76, 8404 Winterthur (Neuhegi)) gesehen.
 
-Ist der Hobbyraum an der Alten Winterthurerstrasse 210 in Nürensdorf noch verfügbar? Gibt es dort einen Stromanschluss, und wäre eine Nutzung für ruhige Bastelarbeiten möglich?
+Ist der 10.9-m²-Lagerraum an der Else-Züblin-Strasse 76 noch frei? Ich würde dort gerne ruhige Bastelarbeiten machen – ist das erlaubt?
 
 Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
 
@@ -267,18 +315,18 @@ Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
 [E-Mail-Adresse]
 ```
 
-## ⬜ offen · Römerstrasse 101, 8404 Winterthur (Oberwinterthur) · CHF 170
+## ⬜ offen · Alte Winterthurerstrasse 210, 8309 Nürensdorf · CHF 170
 
-**Kanal:** Kontaktformular im Homegate-Inserat
+**Kanal:** [Kontaktformular](https://flatfox.ch/de/listing/86482615/submit/) · ☎ 044 833 63 27
 
-**Betreff:** Anfrage Hobby-/Bastelraum – Römerstrasse 101
+**Betreff:** Anfrage Hobby-/Bastelraum – Alte Winterthurerstrasse 210
 
 ```text
 Guten Tag
 
-Auf Homegate habe ich Ihr Angebot «Bastelraum ca. 15 m² im EG mit Tageslicht» (Römerstrasse 101, 8404 Winterthur (Oberwinterthur)) gesehen.
+Auf Flatfox habe ich Ihr Angebot «Zusätzlicher Stauraum in Nürensdorf - Hobbyraum zu vermieten» (Alte Winterthurerstrasse 210, 8309 Nürensdorf) gesehen.
 
-Ist der Bastelraum an der Römerstrasse 101 (ca. 15 m², EG, mit Tageslicht) noch verfügbar? Ich würde ihn für ruhige Hobbyarbeiten nutzen.
+Ist der Hobbyraum an der Alten Winterthurerstrasse 210 in Nürensdorf noch verfügbar? Gibt es dort einen Stromanschluss, und wäre eine Nutzung für ruhige Bastelarbeiten möglich?
 
 Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
 
@@ -555,6 +603,102 @@ Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
 [E-Mail-Adresse]
 ```
 
+## ⬜ offen · Lindbergstrasse 21, 8404 Winterthur · CHF 115
+
+**Kanal:** Kontaktformular im Comparis-Inserat
+
+**Betreff:** Anfrage Hobby-/Bastelraum – Lindbergstrasse 21
+
+```text
+Guten Tag
+
+Auf Comparis habe ich Ihr Angebot «Atelier zur Untermiete, ein Tag pro Woche» (Lindbergstrasse 21, 8404 Winterthur) gesehen.
+
+Ist ein Wochentag im Atelier an der Lindbergstrasse 21 noch frei? Welcher Tag wäre möglich?
+
+Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
+
+Für eine Besichtigung bin ich zeitlich flexibel. Mietbeginn wäre bei mir so bald wie möglich.
+
+Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
+
+[Vorname Nachname]
+[Telefonnummer]
+[E-Mail-Adresse]
+```
+
+## ⬜ offen · Hard 4, 8408 Winterthur (Wülflingen) · CHF 145
+
+**Kanal:** Kontaktformular im Homegate-Inserat
+
+**Betreff:** Anfrage Hobby-/Bastelraum – Hard 4
+
+```text
+Guten Tag
+
+Auf Homegate habe ich Ihr Angebot «Platz im Bandraum (ein Abend pro Woche)» (Hard 4, 8408 Winterthur (Wülflingen)) gesehen.
+
+Ist der Platz im Musikraum an der Hard 4 (ein Abend pro Woche) noch frei?
+
+Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
+
+Für eine Besichtigung bin ich zeitlich flexibel. Mietbeginn wäre bei mir so bald wie möglich.
+
+Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
+
+[Vorname Nachname]
+[Telefonnummer]
+[E-Mail-Adresse]
+```
+
+## ⬜ offen · Im Geissacker, 8404 Winterthur · CHF 150
+
+**Kanal:** Kontaktformular im Comparis-Inserat
+
+**Betreff:** Anfrage Hobby-/Bastelraum – Im Geissacker
+
+```text
+Guten Tag
+
+Auf Comparis habe ich Ihr Angebot «Proberaum zur Mitbenutzung (ein Tag pro Woche)» (Im Geissacker, 8404 Winterthur) gesehen.
+
+Ist der Platz im Proberaum (Im Geissacker) noch frei?
+
+Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
+
+Für eine Besichtigung bin ich zeitlich flexibel. Mietbeginn wäre bei mir so bald wie möglich.
+
+Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
+
+[Vorname Nachname]
+[Telefonnummer]
+[E-Mail-Adresse]
+```
+
+## ⬜ offen · St. Gallerstrasse 10, 8400 Winterthur · CHF 250
+
+**Kanal:** Kontaktformular im Comparis-Inserat
+
+**Betreff:** Anfrage Hobby-/Bastelraum – St. Gallerstrasse 10
+
+```text
+Guten Tag
+
+Auf Comparis habe ich Ihr Angebot «Kellerraum ca. 25 m²» (St. Gallerstrasse 10, 8400 Winterthur) gesehen.
+
+Ist der Kellerraum an der St. Gallerstrasse 10 (ca. 25 m²) noch zu haben, und wäre eine ruhige Hobbynutzung möglich?
+
+Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
+
+Für eine Besichtigung bin ich zeitlich flexibel. Mietbeginn wäre bei mir so bald wie möglich.
+
+Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
+
+[Vorname Nachname]
+[Telefonnummer]
+[E-Mail-Adresse]
+```
+
 ## ⬜ offen · Konradstr. 1, 8400 Winterthur · CHF 360
 
 **Kanal:** [Kontaktformular](https://flatfox.ch/de/listing/86180557/submit/)
@@ -567,6 +711,30 @@ Guten Tag
 Auf Flatfox habe ich Ihr Angebot «Büroraum direkt am Bahnhof Winterthur» (Konradstr. 1, 8400 Winterthur) gesehen.
 
 Wäre der kleine Büroraum an der Konradstrasse 1 auch für ruhige Hobbyarbeiten (z. B. Basteln am Tisch) zulässig?
+
+Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
+
+Für eine Besichtigung bin ich zeitlich flexibel. Mietbeginn wäre bei mir so bald wie möglich.
+
+Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
+
+[Vorname Nachname]
+[Telefonnummer]
+[E-Mail-Adresse]
+```
+
+## ⬜ offen · Sennhofweg 145, 8482 Winterthur (Sennhof) · CHF 430
+
+**Kanal:** Kontaktformular im Comparis-Inserat
+
+**Betreff:** Anfrage Hobby-/Bastelraum – Sennhofweg 145
+
+```text
+Guten Tag
+
+Auf Comparis habe ich Ihr Angebot «Hobbyraum 28 m² mit Kochnische und WC» (Sennhofweg 145, 8482 Winterthur (Sennhof)) gesehen.
+
+Ist der Hobbyraum am Sennhofweg 145 (28 m²) noch verfügbar?
 
 Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
 

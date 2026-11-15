@@ -65,7 +65,8 @@ def table(rows):
         titel = f"**{a['adresse']}**<br>{a['titel']}<br><sub>{a.get('nutzung') or ''}</sub>"
         preis = chf(a) + (f"<br><sub>{a['preis_text']}</sub>" if a.get("preis_text") else "")
         anb = f"{a['anbieter'] or '–'}<br>{kontakt(a)}"
-        o.append(f"| {STATUS.get(a['status'], a['status'])} | {titel} | {preis} | {a.get('m2') or '?'} | {a.get('km') or '?'} | {a.get('verfuegbar') or '?'} | {anb} | {link_md(a.get('link'))} |")
+        st = STATUS.get(a['status'], a['status']) + (" · 🔌 offline" if a.get("offline") else "")
+        o.append(f"| {st} | {titel} | {preis} | {a.get('m2') or '?'} | {a.get('km') or '?'} | {a.get('verfuegbar') or '?'} | {anb} | {link_md(a.get('link'))} |")
     return o
 for p in (1, 2, 3, 4):
     rows = [a for a in verified if a["prio"] == p]

@@ -204,7 +204,7 @@ code { font-size: 0.9em; background: var(--sunken); padding: 1px 5px; border-rad
       <label class="field">Sortierung
         <select id="sort"><option value="empf">Empfehlung</option><option value="preis">Preis</option><option value="km">Distanz</option><option value="neu">Neueste zuerst</option></select>
       </label>
-      <label class="toggle"><input type="checkbox" id="hidedone" checked> Abgesagte/vergebene ausblenden</label>
+      <label class="toggle"><input type="checkbox" id="hidedone" checked> Abgesagte, vergebene und offline ausblenden</label>
     </div>
     <div class="result-note" id="resnote"></div>
     <div class="list" id="list"><div class="loading">Angebote werden geladen …</div></div>
@@ -255,7 +255,7 @@ code { font-size: 0.9em; background: var(--sunken); padding: 1px 5px; border-rad
     </form>
   </section>
 
-  <footer class="foot">Daten: Flatfox-API und Websites von Winterthurer Verwaltungen, automatisch geprüft über GitHub Actions. Inserate von Homegate, ImmoScout24, Comparis und Tutti nur, soweit sie auf Flatfox erscheinen oder von Hand ergänzt wurden.</footer>
+  <footer class="foot">Automatisch geprüft (GitHub Actions): Flatfox, maison.work, storabble sowie die Websites von Gesewo, Terresta, L+B, HGW und dem Gewerbehaus Passant. Inserate von Homegate, ImmoScout24, Comparis und Tutti nur, soweit sie dort gespiegelt oder von Hand ergänzt wurden («nicht geprüft»).</footer>
 </div>
 <div class="toast" id="toast" hidden></div>
 
@@ -300,7 +300,8 @@ code { font-size: 0.9em; background: var(--sunken); padding: 1px 5px; border-rad
   // ---------------------------------------------------------------- Status (Browser + optional GitHub)
   function kindKey(kind) { return kind === "a" ? "angebote" : "verwaltungen"; }
   function stOf(kind, item) { var o = S.status[kindKey(kind)][item.id]; return o ? o.status : (item.status || "offen"); }
-  function isNew(a) { return stOf("a", a) === "neu"; }
+  function isNew(a) { return stOf("a", a) === "neu" && !a.offline; }
+  function isDone(a) { return !!DONE[stOf("a", a)] || !!a.offline; }
   function mergeStatus(base, extra) {
     var out = { angebote: Object.assign({}, base.angebote || {}), verwaltungen: Object.assign({}, base.verwaltungen || {}) };
     ["angebote", "verwaltungen"].forEach(function (k) {
@@ -323,7 +324,7 @@ code { font-size: 0.9em; background: var(--sunken); padding: 1px 5px; border-rad
       return r.json();
     }).then(function (j) { S.sha = j.sha; return JSON.parse(b64decode(j.content)); });
   }
-  var pushing = null, pushAgain = false;
+  var pushing = null, pushAgain = false, pushTries = 0;
   function pushRemote() {
     if (!S.token) return;
     if (pushing) { pushAgain = true; return; }
@@ -332,10 +333,11 @@ code { font-size: 0.9em; background: var(--sunken); padding: 1px 5px; border-rad
       var body = JSON.stringify({ _info: remote._info || "Status pro Eintrag, von der Webseite gepflegt.", angebote: S.status.angebote, verwaltungen: S.status.verwaltungen }, null, 1);
       return api("/contents/data/status.json", { method: "PUT", body: JSON.stringify({ message: "Status aktualisiert (Webseite)", content: b64encode(body), sha: S.sha, branch: REPO.branch }) });
     }).then(function (r) {
-      if (r.status === 409) { pushAgain = true; return; }
+      if ((r.status === 409 || r.status === 422) && pushTries < 3) { pushTries++; pushAgain = true; return; }
       if (!r.ok) throw new Error("Speichern auf GitHub fehlgeschlagen (" + r.status + ")");
+      pushTries = 0;
       return r.json().then(function (j) { S.sha = j.content && j.content.sha; setSyncMsg("Synchronisiert " + fmtDate(new Date().toISOString())); });
-    }).catch(function (e) { setSyncMsg(e.message, true); toast("Nur im Browser gespeichert – " + e.message); })
+    }).catch(function (e) { pushTries = 0; pushAgain = false; setSyncMsg(e.message, true); toast("Nur im Browser gespeichert – " + e.message); })
       .then(function () { pushing = null; if (pushAgain) { pushAgain = false; setTimeout(pushRemote, 800); } });
   }
   function setStatus(kind, id, s) {
@@ -421,13 +423,14 @@ code { font-size: 0.9em; background: var(--sunken); padding: 1px 5px; border-rad
   function rowAngebot(a) {
     var key = "a:" + a.id, link = safeUrl(a.link), st = stOf("a", a);
     var chips = [];
-    if (st === "neu") chips.push('<span class="chip new">NEU</span>');
+    if (a.offline) chips.push('<span class="chip warn">nicht mehr online' + (a.offline_seit ? ' seit ' + esc(fmtDate(a.offline_seit)) : '') + '</span>');
+    if (st === "neu" && !a.offline) chips.push('<span class="chip new">NEU</span>');
     if (a.prio === 1) chips.push('<span class="chip top">Top</span>');
     if (a.nutzung) chips.push('<span class="chip">' + esc(a.nutzung) + "</span>");
     if (a.verfuegbar) chips.push('<span class="chip">verfügbar: ' + esc(a.verfuegbar) + "</span>");
     if (unverified(a)) chips.push('<span class="chip warn">nicht geprüft – Inserat evtl. offline</span>');
     var who = [a.anbieter, a.kontakt_person, a.telefon ? "☎ " + a.telefon : null, a.email].filter(Boolean).map(esc).join(" · ");
-    return '<article class="row' + (st === "neu" ? " is-new" : "") + (DONE[st] ? " is-done" : "") + '">' +
+    return '<article class="row' + (isNew(a) ? " is-new" : "") + (isDone(a) ? " is-done" : "") + '">' +
       '<div class="price num"><span class="chf">' + esc(chf(a.chf_monat)) + '</span><span class="per">' + (a.chf_monat != null ? "/Mt." : "") + "</span>" +
       '<span class="meta">' + (a.m2 ? esc(a.m2) + " m²" : "? m²") + " · " + (a.km != null ? esc(a.km) + " km" : "? km") + "</span></div>" +
       '<div class="obj"><div class="addr">' + esc(a.adresse) + '</div><div class="title">' + esc(a.titel) + "</div>" +
@@ -460,7 +463,7 @@ code { font-size: 0.9em; background: var(--sunken); padding: 1px 5px; border-rad
     var list = S.angebote.filter(function (a) {
       var st = stOf("a", a);
       if (S.statusFilter && st !== S.statusFilter) return false;
-      if (!S.statusFilter && hide && DONE[st]) return false;
+      if (!S.statusFilter && hide && isDone(a)) return false;
       if (maxchf && (a.chf_monat == null || a.chf_monat > maxchf)) return false;
       if (maxkm && (a.km == null || a.km > maxkm)) return false;
       if (q && [a.adresse, a.titel, a.anbieter, a.nutzung, a.hinweise].join(" ").toLowerCase().indexOf(q) < 0) return false;
@@ -472,7 +475,7 @@ code { font-size: 0.9em; background: var(--sunken); padding: 1px 5px; border-rad
       if (s === "preis") return px - py;
       if (s === "km") return (x.km == null ? 99 : x.km) - (y.km == null ? 99 : y.km);
       if (s === "neu") return String(y.entdeckt || "").localeCompare(String(x.entdeckt || "")) || px - py;
-      return (isNew(y) - isNew(x)) || ((x.prio || 9) - (y.prio || 9)) || (unverified(x) - unverified(y)) || px - py;
+      return (isNew(y) - isNew(x)) || (isDone(x) - isDone(y)) || ((x.prio || 9) - (y.prio || 9)) || (unverified(x) - unverified(y)) || px - py;
     });
     return list;
   }
@@ -504,7 +507,8 @@ code { font-size: 0.9em; background: var(--sunken); padding: 1px 5px; border-rad
     var age = (Date.now() - new Date(m.letzte_pruefung).getTime()) / 3600000;
     el.innerHTML = '<span><span class="dot' + (age > 2 ? " stale" : "") + '"></span>Zuletzt geprüft <strong>' + esc(relTime(m.letzte_pruefung)) + "</strong></span>" +
       '<span class="num">' + esc(fmtDate(m.letzte_pruefung)) + (m.intervall ? " · " + esc(m.intervall) : "") + "</span>" +
-      (m.letzter_fund ? "<span>Letzter Fund: " + esc(relTime(m.letzter_fund)) + "</span>" : "");
+      (m.letzter_fund ? "<span>Letzter Fund: " + esc(relTime(m.letzter_fund)) + "</span>" : "") +
+      (m.fehler && m.fehler.length ? '<span class="hint warn" title="' + esc(m.fehler.join(" · ")) + '">' + m.fehler.length + (m.fehler.length === 1 ? " Quelle" : " Quellen") + " beim letzten Lauf nicht erreichbar</span>" : "");
   }
   function render() {
     renderCounts(); renderCheck();
@@ -597,15 +601,22 @@ code { font-size: 0.9em; background: var(--sunken); padding: 1px 5px; border-rad
     return Promise.all([getJSON("data/angebote.json"), getJSON("data/verwaltungen.json"), getJSON("data/meta.json").catch(function () { return null; }),
                         S.token ? pullRemote().catch(function () { return getJSON("data/status.json"); }) : getJSON("data/status.json").catch(function () { return {}; })])
       .then(function (r) {
-        S.angebote = r[0].angebote || []; S.verw = r[1].verwaltungen || []; S.meta = r[2];
+        var sig = JSON.stringify([r[0], r[1], r[2], r[3]]);
         S.status = mergeStatus(r[3] || {}, S.status); store("hobbyraum-status", S.status);
-        S.loaded = true; render();
+        if (sig === S.sig) { renderCheck(); return; }
+        S.sig = sig; S.angebote = r[0].angebote || []; S.verw = r[1].verwaltungen || []; S.meta = r[2];
+        S.loaded = true;
+        var ae = document.activeElement;
+        if (ae && /^(TEXTAREA|INPUT|SELECT)$/.test(ae.tagName) && S.tab !== "profil") { S.pending = true; renderCheck(); return; }
+        render();
       });
   }
   refresh().catch(function (e) {
     $("list").innerHTML = '<div class="loading">Die Daten konnten nicht geladen werden (' + esc(e.message) + '). Bitte später neu laden.</div>';
   });
   setInterval(function () { if (document.visibilityState === "visible") refresh().catch(function () {}); }, 5 * 60000);
+  document.addEventListener("focusout", function () { if (S.pending) { S.pending = false; setTimeout(render, 50); } });
+  document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible") refresh().catch(function () {}); });
   setInterval(renderCheck, 60000);
 })();
 </script>
