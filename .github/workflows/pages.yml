@@ -2,6 +2,9 @@ name: Webseite veröffentlichen
 on:
   push:
     branches: ["claude/awesome-bohr-8mqu2d"]
+  workflow_run:
+    workflows: ["Hobbyraum-Monitor"]
+    types: [completed]
   workflow_dispatch: {}
 permissions:
   contents: read
@@ -18,6 +21,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: claude/awesome-bohr-8mqu2d
       - name: Seite zusammenstellen
         run: |
           mkdir -p _site
