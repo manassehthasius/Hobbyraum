@@ -1,7 +1,17 @@
 {
- "letzte_pruefung": "2026-11-15T10:45:47+00:00",
+ "letzte_pruefung": "2026-11-15T11:19:03+00:00",
  "letzter_fund": null,
  "intervall": "alle 30 Minuten",
  "fehler": [],
- "letzter_lauf": "0 neue(s) Angebot(e)"
+ "letzter_lauf": "0 neue(s) Angebot(e)",
+ "quellen": [
+  "Flatfox",
+  "maison.work",
+  "storabble",
+  "Gesewo",
+  "Terresta",
+  "L+B",
+  "HGW",
+  "Passant"
+ ]
 }
