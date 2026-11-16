@@ -1,10 +1,8 @@
 {
- "letzte_pruefung": "2026-11-16T04:15:10+00:00",
+ "letzte_pruefung": "2026-11-16T05:53:47+00:00",
  "letzter_fund": null,
  "intervall": "alle 30 Minuten",
- "fehler": [
-  "Gesewo: <urlopen error [Errno 111] Connection refused>"
- ],
+ "fehler": [],
  "letzter_lauf": "0 neue(s) Angebot(e)",
  "quellen": [
   "Flatfox",
