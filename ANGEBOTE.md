@@ -2,7 +2,7 @@
 
 Stand: **2026-11-13** · Distanzen = Luftlinie ab Startpunkt Winterthur-Neuwiesen/Lind · Preise = Monatsmiete brutto inkl. NK, soweit bekannt.
 
-**35 Angebote** (22 live verifiziert, 13 nur über Suchmaschine gefunden) · Status-Legende: ⬜ offen · 🆕 neu · 📨 kontaktiert · 💬 Antwort erhalten · 👀 Besichtigung · ✅ zugesagt · ❌ abgesagt · 🚫 vergeben
+**36 Angebote** (23 live verifiziert, 13 nur über Suchmaschine gefunden) · Status-Legende: ⬜ offen · 🆕 neu · 📨 kontaktiert · 💬 Antwort erhalten · 👀 Besichtigung · ✅ zugesagt · ❌ abgesagt · 🚫 vergeben
 
 E-Mail-Entwürfe: [`emails/ANGEBOTE.md`](emails/ANGEBOTE.md) · Verwaltungen ohne Inserat: [`VERWALTUNGEN.md`](VERWALTUNGEN.md)
 
@@ -22,8 +22,9 @@ E-Mail-Entwürfe: [`emails/ANGEBOTE.md`](emails/ANGEBOTE.md) · Verwaltungen ohn
 
 | Status | Objekt | Preis/Mt. | m² | km | Verfügbar | Anbieter / Kontakt | Link |
 |---|---|---|---|---|---|---|---|
+| 🆕 neu | **Wieshofstrasse 85, 8408 Winterthur**<br>Bastelraum<br><sub></sub> | CHF 100 | 12 | 2.5 | sofort | Wohngut GmbH<br>[Kontaktformular](https://flatfox.ch/de/listing/86548133/submit/) | [Inserat](https://flatfox.ch/de/86548133/) |
 | ⬜ offen | **Else-Züblin-Strasse 76, 8404 Winterthur (Neuhegi)**<br>Lagerraum 10.9 m², 24/7 zugänglich<br><sub>Lagerraum mit Steckdosen – Hobbynutzung anfragen</sub> | CHF 155<br><sub>CHF 155 inkl. NK und MWST, Depot CHF 500</sub> | 10.9 | 3.4 | sofort | Allianz Suisse Immobilien AG<br>[Kontaktformular](https://storabble.com/en/listing/10-9m2-lagerraum-winterthur-else-zublin-strasse-76-7333) | [Inserat](https://storabble.com/en/listing/10-9m2-lagerraum-winterthur-else-zublin-strasse-76-7333) |
-| ⬜ offen | **Alte Winterthurerstrasse 210, 8309 Nürensdorf**<br>Zusätzlicher Stauraum in Nürensdorf - Hobbyraum zu vermieten<br><sub>Hobbyraum (ausdrücklich), «ideal als Stauraum»</sub> | CHF 170 | 11 | 6.5 | sofort | Madeleine Kobelt Immobilien AG<br>☎ 044 833 63 27<br>[Kontaktformular](https://flatfox.ch/de/listing/86482615/submit/) | [Inserat](https://flatfox.ch/de/86482615/) |
+| ⬜ offen · 🔌 offline | **Alte Winterthurerstrasse 210, 8309 Nürensdorf**<br>Zusätzlicher Stauraum in Nürensdorf - Hobbyraum zu vermieten<br><sub>Hobbyraum (ausdrücklich), «ideal als Stauraum»</sub> | CHF 170 | 11 | 6.5 | sofort | Madeleine Kobelt Immobilien AG<br>☎ 044 833 63 27<br>[Kontaktformular](https://flatfox.ch/de/listing/86482615/submit/) | [Inserat](https://flatfox.ch/de/86482615/) |
 | ⬜ offen | **Rudolf-Diesel-Strasse 28, 8404 Winterthur**<br>Attraktive Bürofläche im Grüze-Quartier – Nachmieter gesucht 🏢✨<br><sub>Büro – Inserat nennt ausdrücklich auch «Hobbyraum/Arbeitsatelier»</sub> | CHF 485 | 21 | 3.2 | 2027-01-01 | Privat (Nachmieter gesucht)<br>[Kontaktformular](https://flatfox.ch/de/listing/86467669/submit/) | [Inserat](https://flatfox.ch/de/86467669/) |
 | ⬜ offen | **Zürcherstrasse 320, 8406 Winterthur**<br>Büroraum 216 im Gewerbehaus Passant (House of Sounds)<br><sub>Gewerbehaus für Musiker, Werkstätten, Ateliers – Hobby-/Kreativnutzung üblich</sub> | CHF 572<br><sub>CHF 571.85 brutto inkl. NK und MWST</sub> | 22 | 3.3 | frei (laut Website) | Fischer AG Immobilienmanagement<br>Sascha Gut<br>☎ 044 291 91 10<br>✉ sascha.gut@fischer97.ch | [Inserat](https://passant.ch/) |
 | ⬜ offen | **Grenzstrasse 13, 8406 Winterthur (Töss)**<br>Atelier/Büro/Therapieraum (Soussol, viel Tageslicht)<br><sub>Atelier (nur ruhige Tätigkeiten)</sub> | CHF 678<br><sub>CHF 678 inkl. NK; Genossenschaftsanteil CHF 2'000 (statt Depot)</sub> | 50 | 1.6 | 01.02.2027 oder früher n.V. | Gesewo (Genossenschaft für selbstverwaltetes Wohnen)<br>☎ 052 242 05 38<br>✉ grenzstrasse@gesewo.ch | [Inserat](https://www.gesewo.ch/details-91/grenzstrasse-atelier-zu-vermieten.html) |
@@ -93,6 +94,8 @@ E-Mail-Entwürfe: [`emails/ANGEBOTE.md`](emails/ANGEBOTE.md) · Verwaltungen ohn
 - **Brünnelihöhestrasse 1, 8400 Winterthur** – 13 m² im EG (nicht Keller), Stromanschluss. CHF 130 netto + 10 NK.
 - **Römerstrasse 101, 8404 Winterthur (Oberwinterthur)** – Ca. 15 m² im Erdgeschoss mit Tageslicht, kein Wasser (nicht als Musik-/Proberaum). CHF 150 netto + 20 NK. Referenz 0293.01.0301. [Link 2](https://www.homegate.ch/rent/4002861178) · [Link 3](https://storabble.com/en/listing/bastelraum-in-oberwinterthur-19437)
 - **Wartstr. 30, 8400 Winterthur** – 31 m² im 1. UG, nur ca. 400 m Luftlinie entfernt. CHF 210 netto + 25 NK. Online-Bewerbung über mywincasa.ch möglich. [Link 2](https://www.mywincasa.ch/rental/detail/598a6266-9a59-4833-9bdb-06e3fe29cc93) · [Link 3](https://storabble.com/en/listing/hinter-dem-hauptbahnhof-18202)
+- **Wieshofstrasse 85, 8408 Winterthur** – Dieser vielseitig nutzbare Bastel- und Lagerraum bietet zusätzlichen Platz für kreative Tätigkeiten oder die Aufbewahrung verschiedenster Gegenstände.  
+Der Raum verfügt über ein Fenster mit Tageslichteinfall, einen Betonboden sowie eine Beleuchtung. Ideal als Hobby-, Bastel- oder Lagerraum.
 - **Kirchackerstrasse 36, 8405 Winterthur** – Lift, Lavabo im UG, WC im Keller des Nachbarhauses.
 - **Ebnetstrasse 6, 8406 Winterthur** – Inserat-Link nicht gefunden – nach «Ebnetstrasse 6 Winterthur Hobbyraum» suchen.
 - **Wülflingerstrasse 172, 8408 Winterthur** – Genaue Inserate-ID nicht eindeutig – in der Comparis-Liste nach «Wülflingerstrasse 172» suchen.
