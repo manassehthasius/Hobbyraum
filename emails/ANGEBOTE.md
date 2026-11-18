@@ -411,6 +411,30 @@ Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
 [E-Mail-Adresse]
 ```
 
+## 🆕 neu · Illnauerstrasse 35, 8307 Effretikon · CHF 210
+
+**Kanal:** [Kontaktformular](https://flatfox.ch/de/listing/86423264/submit/)
+
+**Betreff:** Anfrage Hobby-/Bastelraum – Illnauerstrasse 35
+
+```text
+Guten Tag
+
+Auf Flatfox habe ich Ihr Angebot «Lagerraum in Effretikon zu vermieten» (Illnauerstrasse 35, 8307 Effretikon) gesehen.
+
+Ist dieser Raum noch verfügbar, und wäre eine ruhige Hobbynutzung möglich? Gerne würde ich ihn besichtigen.
+
+Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
+
+Für eine Besichtigung bin ich zeitlich flexibel. Mietbeginn wäre bei mir so bald wie möglich.
+
+Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
+
+[Vorname Nachname]
+[Telefonnummer]
+[E-Mail-Adresse]
+```
+
 ## ⬜ offen · Rudolf-Diesel-Strasse 28, 8404 Winterthur · CHF 485
 
 **Kanal:** [Kontaktformular](https://flatfox.ch/de/listing/86467669/submit/)
@@ -423,6 +447,30 @@ Guten Tag
 Auf Flatfox habe ich Ihr Angebot «Attraktive Bürofläche im Grüze-Quartier – Nachmieter gesucht 🏢✨» (Rudolf-Diesel-Strasse 28, 8404 Winterthur) gesehen.
 
 Sie suchen für das Büro an der Rudolf-Diesel-Strasse 28 einen Nachmieter und erwähnen auch die Nutzung als Hobbyraum. Ist das noch aktuell? Wie hoch ist die Kündigungsfrist des Hauptmietvertrags, und wäre ein früherer Bezug möglich?
+
+Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
+
+Für eine Besichtigung bin ich zeitlich flexibel. Mietbeginn wäre bei mir so bald wie möglich.
+
+Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
+
+[Vorname Nachname]
+[Telefonnummer]
+[E-Mail-Adresse]
+```
+
+## 🆕 neu · Steinberggasse 26, 8400 Winterthur · CHF 550
+
+**Kanal:** [Kontaktformular](https://flatfox.ch/de/listing/86470481/submit/)
+
+**Betreff:** Anfrage Hobby-/Bastelraum – Steinberggasse 26
+
+```text
+Guten Tag
+
+Auf Flatfox habe ich Ihr Angebot «Charmanter Büroraum an bester Altstadtlage» (Steinberggasse 26, 8400 Winterthur) gesehen.
+
+Ist dieser Raum noch verfügbar, und wäre eine ruhige Hobbynutzung möglich? Gerne würde ich ihn besichtigen.
 
 Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
 

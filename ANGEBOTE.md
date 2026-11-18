@@ -2,7 +2,7 @@
 
 Stand: **2026-11-13** · Distanzen = Luftlinie ab Startpunkt Winterthur-Neuwiesen/Lind · Preise = Monatsmiete brutto inkl. NK, soweit bekannt.
 
-**37 Angebote** (24 live verifiziert, 13 nur über Suchmaschine gefunden) · Status-Legende: ⬜ offen · 🆕 neu · 📨 kontaktiert · 💬 Antwort erhalten · 👀 Besichtigung · ✅ zugesagt · ❌ abgesagt · 🚫 vergeben
+**39 Angebote** (26 live verifiziert, 13 nur über Suchmaschine gefunden) · Status-Legende: ⬜ offen · 🆕 neu · 📨 kontaktiert · 💬 Antwort erhalten · 👀 Besichtigung · ✅ zugesagt · ❌ abgesagt · 🚫 vergeben
 
 E-Mail-Entwürfe: [`emails/ANGEBOTE.md`](emails/ANGEBOTE.md) · Verwaltungen ohne Inserat: [`VERWALTUNGEN.md`](VERWALTUNGEN.md)
 
@@ -26,7 +26,9 @@ E-Mail-Entwürfe: [`emails/ANGEBOTE.md`](emails/ANGEBOTE.md) · Verwaltungen ohn
 | ⬜ offen | **Else-Züblin-Strasse 76, 8404 Winterthur (Neuhegi)**<br>Lagerraum 10.9 m², 24/7 zugänglich<br><sub>Lagerraum mit Steckdosen – Hobbynutzung anfragen</sub> | CHF 155<br><sub>CHF 155 inkl. NK und MWST, Depot CHF 500</sub> | 10.9 | 3.4 | sofort | Allianz Suisse Immobilien AG<br>[Kontaktformular](https://storabble.com/en/listing/10-9m2-lagerraum-winterthur-else-zublin-strasse-76-7333) | [Inserat](https://storabble.com/en/listing/10-9m2-lagerraum-winterthur-else-zublin-strasse-76-7333) |
 | 🆕 neu | **Dorfstrasse 75, 8424 Embrach**<br>4m2 Kellerabteil Embrach - Dorfstrasse<br><sub></sub> | CHF 165 | 4.0 | 9.5 | ? | Swiss Property Management AG<br>[Kontaktformular](https://storabble.com/en/listing/4m2-kellerabteil-embrach-dorfstrasse-23664) | [Inserat](https://storabble.com/en/listing/4m2-kellerabteil-embrach-dorfstrasse-23664) |
 | ⬜ offen · 🔌 offline | **Alte Winterthurerstrasse 210, 8309 Nürensdorf**<br>Zusätzlicher Stauraum in Nürensdorf - Hobbyraum zu vermieten<br><sub>Hobbyraum (ausdrücklich), «ideal als Stauraum»</sub> | CHF 170 | 11 | 6.5 | sofort | Madeleine Kobelt Immobilien AG<br>☎ 044 833 63 27<br>[Kontaktformular](https://flatfox.ch/de/listing/86482615/submit/) | [Inserat](https://flatfox.ch/de/86482615/) |
+| 🆕 neu | **Illnauerstrasse 35, 8307 Effretikon**<br>Lagerraum in Effretikon zu vermieten<br><sub></sub> | CHF 210 | 26 | 8.9 | sofort | CSL Immobilien AG<br>[Kontaktformular](https://flatfox.ch/de/listing/86423264/submit/) | [Inserat](https://flatfox.ch/de/86423264/) |
 | ⬜ offen | **Rudolf-Diesel-Strasse 28, 8404 Winterthur**<br>Attraktive Bürofläche im Grüze-Quartier – Nachmieter gesucht 🏢✨<br><sub>Büro – Inserat nennt ausdrücklich auch «Hobbyraum/Arbeitsatelier»</sub> | CHF 485 | 21 | 3.2 | 2027-01-01 | Privat (Nachmieter gesucht)<br>[Kontaktformular](https://flatfox.ch/de/listing/86467669/submit/) | [Inserat](https://flatfox.ch/de/86467669/) |
+| 🆕 neu | **Steinberggasse 26, 8400 Winterthur**<br>Charmanter Büroraum an bester Altstadtlage<br><sub></sub> | CHF 550 | 11 | 1.0 | 2027-04-01 | BODAG Immobilien AG<br>[Kontaktformular](https://flatfox.ch/de/listing/86470481/submit/) | [Inserat](https://flatfox.ch/de/86470481/) |
 | ⬜ offen | **Zürcherstrasse 320, 8406 Winterthur**<br>Büroraum 216 im Gewerbehaus Passant (House of Sounds)<br><sub>Gewerbehaus für Musiker, Werkstätten, Ateliers – Hobby-/Kreativnutzung üblich</sub> | CHF 572<br><sub>CHF 571.85 brutto inkl. NK und MWST</sub> | 22 | 3.3 | frei (laut Website) | Fischer AG Immobilienmanagement<br>Sascha Gut<br>☎ 044 291 91 10<br>✉ sascha.gut@fischer97.ch | [Inserat](https://passant.ch/) |
 | ⬜ offen | **Grenzstrasse 13, 8406 Winterthur (Töss)**<br>Atelier/Büro/Therapieraum (Soussol, viel Tageslicht)<br><sub>Atelier (nur ruhige Tätigkeiten)</sub> | CHF 678<br><sub>CHF 678 inkl. NK; Genossenschaftsanteil CHF 2'000 (statt Depot)</sub> | 50 | 1.6 | 01.02.2027 oder früher n.V. | Gesewo (Genossenschaft für selbstverwaltetes Wohnen)<br>☎ 052 242 05 38<br>✉ grenzstrasse@gesewo.ch | [Inserat](https://www.gesewo.ch/details-91/grenzstrasse-atelier-zu-vermieten.html) |
 
@@ -105,7 +107,18 @@ Der Raum verfügt über ein Fenster mit Tageslichteinfall, einen Betonboden sowi
 - **Dorfstrasse 75, 8424 Embrach** – Wir vermieten ein 4.0m2 grosses Kellerabteil an der Dorfstrasse 75 in Embrach. Das Abteil liegt im 1. Untergeschoss und ist mit Holzlatten abgetrennt. 4.0m2 für monatlich CHF 165.00 (INKLUSIVE Nebenkosten und Mehrwertsteuer) Deckenhöhe von 2.61m. Das Abteil ist 1.46 m breit und 2.97 m lang. Vor dem Haus können Sie auf den Kundenparkplätzen kurz ein- und ausladen. Ins Untergeschoss gelangen Sie mit
 - **Alte Winterthurerstrasse 210, 8309 Nürensdorf** – 11 m² im 1. UG, Nürensdorf (6.5 km). CHF 150 netto + 20 NK.
 - **Marktgasse 45 / Metzggasse 18, 8400 Winterthur (Altstadt)** –  [Link 2](https://www.immoscout24.ch/rent/4003226885)
+- **Illnauerstrasse 35, 8307 Effretikon** – Ab sofort oder nach Vereinbarung vermieten wir diesen Lagerraum in Effretikon.   
+  
+Konnten wir Ihr Interesse wecken? Dann freuen wir uns auf Ihre Kontaktaufnahme.   
+  
+Besichtigungen, Fragen und Bewerbungen:   
+https://robinreal.ai/suchen/6ac3926a4380ff9d69c38f32?s=h
 - **Rudolf-Diesel-Strasse 28, 8404 Winterthur** – 21 m² im 1. OG mit grosser Fensterfront, Lift. CHF 400 netto + 85 NK = 485; Aussenparkplatz optional CHF 70.
+- **Steinberggasse 26, 8400 Winterthur** – Per 1. April 2027 vermieten wir einen einfachen, aber charmanten Büroraum an bester Lage in der Altstadt.  
+  
+Der Raum eignet sich ideal als kleines Büro oder als Behandlungsraum für Dienstleistungen wie Massagen, Kosmetik, Nageldesign oder Fusspflege. Das eigene WC bietet zusätzlichen Komfort und macht den Raum zu einem praktischen Standort für Ihre Geschäftsidee.  
+  
+Die attraktive Lage mitten
 - **Zürcherstrasse 320, 8406 Winterthur** – Im selben Haus werden auch Musikübungsräume vermietet (Flatfox-Inserat ab ca. CHF 542 inkl. NK). Restaurant, WC, Parkplätze (CHF 75.40) vorhanden. [Link 2](https://flatfox.ch/de/1233382/)
 - **Grenzstrasse 13, 8406 Winterthur (Töss)** – Hauptraum ca. 35 m² + Eingang 7 m² + Bad mit WC/Dusche 8 m², Küchenzeile, eigener Zugang. Bis April 2027 Gerüst. Teurer, aber vollwertiges Atelier.
 - **Stadlerstrasse 115, 8404 Winterthur** – 19 m² im UG eines MFH, Lift. CHF 200.
