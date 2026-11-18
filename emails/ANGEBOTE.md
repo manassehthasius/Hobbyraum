@@ -339,6 +339,30 @@ Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
 [E-Mail-Adresse]
 ```
 
+## 🆕 neu · Dorfstrasse 75, 8424 Embrach · CHF 165
+
+**Kanal:** [Kontaktformular](https://storabble.com/en/listing/4m2-kellerabteil-embrach-dorfstrasse-23664)
+
+**Betreff:** Anfrage Hobby-/Bastelraum – Dorfstrasse 75
+
+```text
+Guten Tag
+
+Ich habe Ihr Angebot «4m2 Kellerabteil Embrach - Dorfstrasse» (Dorfstrasse 75, 8424 Embrach) gesehen.
+
+Ist dieser Raum noch verfügbar, und wäre eine ruhige Hobbynutzung möglich? Gerne würde ich ihn besichtigen.
+
+Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
+
+Für eine Besichtigung bin ich zeitlich flexibel. Mietbeginn wäre bei mir so bald wie möglich.
+
+Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
+
+[Vorname Nachname]
+[Telefonnummer]
+[E-Mail-Adresse]
+```
+
 ## ⬜ offen · Alte Winterthurerstrasse 210, 8309 Nürensdorf · CHF 170
 
 **Kanal:** [Kontaktformular](https://flatfox.ch/de/listing/86482615/submit/) · ☎ 044 833 63 27
