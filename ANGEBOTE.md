@@ -2,7 +2,7 @@
 
 Stand: **2026-11-13** · Distanzen = Luftlinie ab Startpunkt Winterthur-Neuwiesen/Lind · Preise = Monatsmiete brutto inkl. NK, soweit bekannt.
 
-**39 Angebote** (26 live verifiziert, 13 nur über Suchmaschine gefunden) · Status-Legende: ⬜ offen · 🆕 neu · 📨 kontaktiert · 💬 Antwort erhalten · 👀 Besichtigung · ✅ zugesagt · ❌ abgesagt · 🚫 vergeben
+**40 Angebote** (27 live verifiziert, 13 nur über Suchmaschine gefunden) · Status-Legende: ⬜ offen · 🆕 neu · 📨 kontaktiert · 💬 Antwort erhalten · 👀 Besichtigung · ✅ zugesagt · ❌ abgesagt · 🚫 vergeben
 
 E-Mail-Entwürfe: [`emails/ANGEBOTE.md`](emails/ANGEBOTE.md) · Verwaltungen ohne Inserat: [`VERWALTUNGEN.md`](VERWALTUNGEN.md)
 
@@ -27,6 +27,7 @@ E-Mail-Entwürfe: [`emails/ANGEBOTE.md`](emails/ANGEBOTE.md) · Verwaltungen ohn
 | 🆕 neu | **Dorfstrasse 75, 8424 Embrach**<br>4m2 Kellerabteil Embrach - Dorfstrasse<br><sub></sub> | CHF 165 | 4.0 | 9.5 | ? | Swiss Property Management AG<br>[Kontaktformular](https://storabble.com/en/listing/4m2-kellerabteil-embrach-dorfstrasse-23664) | [Inserat](https://storabble.com/en/listing/4m2-kellerabteil-embrach-dorfstrasse-23664) |
 | ⬜ offen · 🔌 offline | **Alte Winterthurerstrasse 210, 8309 Nürensdorf**<br>Zusätzlicher Stauraum in Nürensdorf - Hobbyraum zu vermieten<br><sub>Hobbyraum (ausdrücklich), «ideal als Stauraum»</sub> | CHF 170 | 11 | 6.5 | sofort | Madeleine Kobelt Immobilien AG<br>☎ 044 833 63 27<br>[Kontaktformular](https://flatfox.ch/de/listing/86482615/submit/) | [Inserat](https://flatfox.ch/de/86482615/) |
 | 🆕 neu | **Illnauerstrasse 35, 8307 Effretikon**<br>Lagerraum in Effretikon zu vermieten<br><sub></sub> | CHF 210 | 26 | 8.9 | sofort | CSL Immobilien AG<br>[Kontaktformular](https://flatfox.ch/de/listing/86423264/submit/) | [Inserat](https://flatfox.ch/de/86423264/) |
+| 🆕 neu | **In Wannen 18, 8406 Winterthur**<br>Büro/Abstell-/Bastelraum<br><sub></sub> | CHF 260 | ? | 3.1 | 2026-11-27 | Privat<br>[Kontaktformular](https://flatfox.ch/de/listing/86554261/submit/) | [Inserat](https://flatfox.ch/de/86554261/) |
 | ⬜ offen | **Rudolf-Diesel-Strasse 28, 8404 Winterthur**<br>Attraktive Bürofläche im Grüze-Quartier – Nachmieter gesucht 🏢✨<br><sub>Büro – Inserat nennt ausdrücklich auch «Hobbyraum/Arbeitsatelier»</sub> | CHF 485 | 21 | 3.2 | 2027-01-01 | Privat (Nachmieter gesucht)<br>[Kontaktformular](https://flatfox.ch/de/listing/86467669/submit/) | [Inserat](https://flatfox.ch/de/86467669/) |
 | 🆕 neu | **Steinberggasse 26, 8400 Winterthur**<br>Charmanter Büroraum an bester Altstadtlage<br><sub></sub> | CHF 550 | 11 | 1.0 | 2027-04-01 | BODAG Immobilien AG<br>[Kontaktformular](https://flatfox.ch/de/listing/86470481/submit/) | [Inserat](https://flatfox.ch/de/86470481/) |
 | ⬜ offen | **Zürcherstrasse 320, 8406 Winterthur**<br>Büroraum 216 im Gewerbehaus Passant (House of Sounds)<br><sub>Gewerbehaus für Musiker, Werkstätten, Ateliers – Hobby-/Kreativnutzung üblich</sub> | CHF 572<br><sub>CHF 571.85 brutto inkl. NK und MWST</sub> | 22 | 3.3 | frei (laut Website) | Fischer AG Immobilienmanagement<br>Sascha Gut<br>☎ 044 291 91 10<br>✉ sascha.gut@fischer97.ch | [Inserat](https://passant.ch/) |
