@@ -267,6 +267,30 @@ Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
 [E-Mail-Adresse]
 ```
 
+## 🆕 neu · Archhöfe (Büro/ Praxis), 8400 Winterthur · CHF 120
+
+**Kanal:** [Kontaktformular](https://flatfox.ch/de/listing/85844696/submit/)
+
+**Betreff:** Anfrage Hobby-/Bastelraum – Archhöfe (Büro/ Praxis)
+
+```text
+Guten Tag
+
+Auf Flatfox habe ich Ihr Angebot «Brauchen Sie mehr Platz?» (Archhöfe (Büro/ Praxis), 8400 Winterthur) gesehen.
+
+Ist dieser Raum noch verfügbar, und wäre eine ruhige Hobbynutzung möglich? Gerne würde ich ihn besichtigen.
+
+Kurz zu mir: Ich wohne in Winterthur ganz in der Nähe und suche einen kleinen Raum für [mein Hobby, z. B. Modellbau / Basteln / Holzarbeiten]. Die Nutzung wäre ruhig – kein Gewerbe, kein Publikumsverkehr, keine lauten Maschinen und keine Übernachtungen. Ich bin zuverlässig und zahle pünktlich; einen aktuellen Betreibungsregisterauszug lege ich gerne bei.
+
+Für eine Besichtigung bin ich zeitlich flexibel. Mietbeginn wäre bei mir so bald wie möglich.
+
+Vielen Dank für Ihre Rückmeldung und freundliche Grüsse
+
+[Vorname Nachname]
+[Telefonnummer]
+[E-Mail-Adresse]
+```
+
 ## ⬜ offen · Wülflingerstrasse 172, 8408 Winterthur · CHF 150
 
 **Kanal:** Kontaktformular im Comparis-Inserat
