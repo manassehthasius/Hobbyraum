@@ -2,7 +2,7 @@
 
 Stand: **2026-11-13** · Distanzen = Luftlinie ab Startpunkt Winterthur-Neuwiesen/Lind · Preise = Monatsmiete brutto inkl. NK, soweit bekannt.
 
-**40 Angebote** (27 live verifiziert, 13 nur über Suchmaschine gefunden) · Status-Legende: ⬜ offen · 🆕 neu · 📨 kontaktiert · 💬 Antwort erhalten · 👀 Besichtigung · ✅ zugesagt · ❌ abgesagt · 🚫 vergeben
+**41 Angebote** (28 live verifiziert, 13 nur über Suchmaschine gefunden) · Status-Legende: ⬜ offen · 🆕 neu · 📨 kontaktiert · 💬 Antwort erhalten · 👀 Besichtigung · ✅ zugesagt · ❌ abgesagt · 🚫 vergeben
 
 E-Mail-Entwürfe: [`emails/ANGEBOTE.md`](emails/ANGEBOTE.md) · Verwaltungen ohne Inserat: [`VERWALTUNGEN.md`](VERWALTUNGEN.md)
 
@@ -31,13 +31,14 @@ E-Mail-Entwürfe: [`emails/ANGEBOTE.md`](emails/ANGEBOTE.md) · Verwaltungen ohn
 | ⬜ offen | **Rudolf-Diesel-Strasse 28, 8404 Winterthur**<br>Attraktive Bürofläche im Grüze-Quartier – Nachmieter gesucht 🏢✨<br><sub>Büro – Inserat nennt ausdrücklich auch «Hobbyraum/Arbeitsatelier»</sub> | CHF 485 | 21 | 3.2 | 2027-01-01 | Privat (Nachmieter gesucht)<br>[Kontaktformular](https://flatfox.ch/de/listing/86467669/submit/) | [Inserat](https://flatfox.ch/de/86467669/) |
 | 🆕 neu | **Steinberggasse 26, 8400 Winterthur**<br>Charmanter Büroraum an bester Altstadtlage<br><sub></sub> | CHF 550 | 11 | 1.0 | 2027-04-01 | BODAG Immobilien AG<br>[Kontaktformular](https://flatfox.ch/de/listing/86470481/submit/) | [Inserat](https://flatfox.ch/de/86470481/) |
 | ⬜ offen | **Zürcherstrasse 320, 8406 Winterthur**<br>Büroraum 216 im Gewerbehaus Passant (House of Sounds)<br><sub>Gewerbehaus für Musiker, Werkstätten, Ateliers – Hobby-/Kreativnutzung üblich</sub> | CHF 572<br><sub>CHF 571.85 brutto inkl. NK und MWST</sub> | 22 | 3.3 | frei (laut Website) | Fischer AG Immobilienmanagement<br>Sascha Gut<br>☎ 044 291 91 10<br>✉ sascha.gut@fischer97.ch | [Inserat](https://passant.ch/) |
+| 🆕 neu | **Römerstrasse 95, 8404 Winterthur**<br>Büroräume in Wohnliegenschaft zu vermieten<br><sub></sub> | CHF 600 | 30 | 2.2 | nach Vereinbarung | Auwiesen Immobilien AG<br>[Kontaktformular](https://flatfox.ch/de/listing/86551811/submit/) | [Inserat](https://flatfox.ch/de/86551811/) |
 | ⬜ offen | **Grenzstrasse 13, 8406 Winterthur (Töss)**<br>Atelier/Büro/Therapieraum (Soussol, viel Tageslicht)<br><sub>Atelier (nur ruhige Tätigkeiten)</sub> | CHF 678<br><sub>CHF 678 inkl. NK; Genossenschaftsanteil CHF 2'000 (statt Depot)</sub> | 50 | 1.6 | 01.02.2027 oder früher n.V. | Gesewo (Genossenschaft für selbstverwaltetes Wohnen)<br>☎ 052 242 05 38<br>✉ grenzstrasse@gesewo.ch | [Inserat](https://www.gesewo.ch/details-91/grenzstrasse-atelier-zu-vermieten.html) |
 
 ## Laut Inserat «nur Lager» – Hobbynutzung anfragen
 
 | Status | Objekt | Preis/Mt. | m² | km | Verfügbar | Anbieter / Kontakt | Link |
 |---|---|---|---|---|---|---|---|
-| ⬜ offen | **Stadlerstrasse 115, 8404 Winterthur**<br>Bastelraum in Oberwinterthur<br><sub>Bastelraum, laut Inserat aber «nur als Lager geeignet» (kein Tageslicht, kein Wasser/WC)</sub> | CHF 200 | 19 | 3.1 | 2027-02-01 | Hauswirth Immobilien GmbH<br>☎ 052 203 80 70<br>✉ info@hauswirth-immobilien.ch<br>[Kontaktformular](https://flatfox.ch/de/listing/86497174/submit/) | [Inserat](https://flatfox.ch/de/86497174/) |
+| ⬜ offen · 🔌 offline | **Stadlerstrasse 115, 8404 Winterthur**<br>Bastelraum in Oberwinterthur<br><sub>Bastelraum, laut Inserat aber «nur als Lager geeignet» (kein Tageslicht, kein Wasser/WC)</sub> | CHF 200 | 19 | 3.1 | 2027-02-01 | Hauswirth Immobilien GmbH<br>☎ 052 203 80 70<br>✉ info@hauswirth-immobilien.ch<br>[Kontaktformular](https://flatfox.ch/de/listing/86497174/submit/) | [Inserat](https://flatfox.ch/de/86497174/) |
 | ⬜ offen | **Neuwiesenstrasse 20, 8400 Winterthur**<br>Lagerräume 14–44 m², 100 m vom Bahnhof<br><sub>«Nutzung ausschliesslich als Lager möglich»</sub> | CHF 202<br><sub>CHF 120–122/m²/Jahr netto exkl. NK und MWST → 20 m² ≈ CHF 202, 21 m² ≈ 212, 25 m² ≈ 254, 33 m² ≈ 330 pro Monat</sub> | 20 | 0.3 | teils sofort, teils 01.03./01.05.2027 | Wincasa AG, Technikumstrasse 61, 8400 Winterthur<br>[Kontaktformular](https://flatfox.ch/de/listing/86488422/submit/) | [Inserat](https://flatfox.ch/de/86488422/) |
 | ⬜ offen | **Bankstrasse 8, 12, 8400 Winterthur**<br>Lagerraum im Zentrum von Winterthur<br><sub>Lagerraum</sub> | CHF 284 | 15 | 0.6 | nach Vereinbarung | Privera AG<br>✉ kontakt@privera.ch<br>[Kontaktformular](https://flatfox.ch/de/listing/86522769/submit/) | [Inserat](https://flatfox.ch/de/86522769/) |
 | ⬜ offen | **Vogelsangstrasse 21/23, 8307 Effretikon**<br>Lager im Untergeschoss zu vermieten<br><sub>Lager (2. UG)</sub> | CHF 290 | 24 | 9.9 | nach Vereinbarung | Tellco Immobilien AG<br>[Kontaktformular](https://flatfox.ch/de/listing/85940452/submit/) | [Inserat](https://flatfox.ch/de/85940452/) |
@@ -121,6 +122,18 @@ Der Raum eignet sich ideal als kleines Büro oder als Behandlungsraum für Diens
   
 Die attraktive Lage mitten
 - **Zürcherstrasse 320, 8406 Winterthur** – Im selben Haus werden auch Musikübungsräume vermietet (Flatfox-Inserat ab ca. CHF 542 inkl. NK). Restaurant, WC, Parkplätze (CHF 75.40) vorhanden. [Link 2](https://flatfox.ch/de/1233382/)
+- **Römerstrasse 95, 8404 Winterthur** – Suchen Sie ein Büro an idealer Lage in Oberwinterthur? Per sofort oder nach Vereinbarung vermieten wir flexible Büroräumlichkeiten an der Römerstrasse 95 in Oberwinterthur.  
+  
+**Zur Mietfläche:**  
+  
+
+*   Büroraum mit ca. 30 m2.
+*   Sowie ein Lagerraum (ca. 14.70 m2)
+*   Beleuchtung in allen Räumen vorhanden
+*   Toilette mit Lavabo
+*   Flexible Raumaufteilung nach Ihren Bedürfnissen
+
+Zwei Ausse
 - **Grenzstrasse 13, 8406 Winterthur (Töss)** – Hauptraum ca. 35 m² + Eingang 7 m² + Bad mit WC/Dusche 8 m², Küchenzeile, eigener Zugang. Bis April 2027 Gerüst. Teurer, aber vollwertiges Atelier.
 - **Stadlerstrasse 115, 8404 Winterthur** – 19 m² im UG eines MFH, Lift. CHF 200.
 - **Neuwiesenstrasse 20, 8400 Winterthur** – Gleiche Liegenschaft, 5 Inserate (zusammengefasst, Duplikate entfernt). Personen- und Warenlift. [Link 2](https://flatfox.ch/de/86488423/) · [Link 3](https://flatfox.ch/de/86538483/) · [Link 4](https://flatfox.ch/de/86335041/) · [Link 5](https://flatfox.ch/de/86530113/)

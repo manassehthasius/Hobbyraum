@@ -274,7 +274,9 @@
    "hinweise": "19 m² im UG eines MFH, Lift. CHF 200.",
    "frage": "Sie schreiben, dass der Bastelraum an der Stadlerstrasse 115 eher als Lager geeignet ist, da Tageslicht und Wasser fehlen. Für meine Zwecke würde Strom genügen – wäre eine ruhige Hobbynutzung trotzdem erlaubt?",
    "publiziert": "2026-10-29",
-   "entdeckt": "2026-11-13T18:00:00+00:00"
+   "entdeckt": "2026-11-13T18:00:00+00:00",
+   "offline": true,
+   "offline_seit": "2026-11-20T10:04:47+00:00"
   },
   {
    "id": "flatfox:neuwiesenstr20",
@@ -1078,6 +1080,32 @@
    "hinweise": null,
    "frage": "Ist dieser Raum noch verfügbar, und wäre eine ruhige Hobbynutzung möglich? Gerne würde ich ihn besichtigen.",
    "publiziert": "2026-11-18"
+  },
+  {
+   "id": "flatfox:86551811",
+   "status": "neu",
+   "prio": 2,
+   "verifiziert": "Monitor 2026-11-20 (Flatfox)",
+   "entdeckt": "2026-11-20T10:04:47+00:00",
+   "titel": "Büroräume in Wohnliegenschaft zu vermieten",
+   "typ": "OFFICE",
+   "adresse": "Römerstrasse 95, 8404 Winterthur",
+   "km": 2.2,
+   "chf_monat": 600,
+   "preis_text": null,
+   "m2": 30,
+   "verfuegbar": "nach Vereinbarung",
+   "anbieter": "Auwiesen Immobilien AG",
+   "kontakt_person": null,
+   "telefon": null,
+   "email": null,
+   "kontaktweg": "https://flatfox.ch/de/listing/86551811/submit/",
+   "link": "https://flatfox.ch/de/86551811/",
+   "weitere_links": [],
+   "nutzung": null,
+   "hinweise": "Suchen Sie ein Büro an idealer Lage in Oberwinterthur? Per sofort oder nach Vereinbarung vermieten wir flexible Büroräumlichkeiten an der Römerstrasse 95 in Oberwinterthur.  \n  \n**Zur Mietfläche:**  \n  \n\n*   Büroraum mit ca. 30 m2.\n*   Sowie ein Lagerraum (ca. 14.70 m2)\n*   Beleuchtung in allen Räumen vorhanden\n*   Toilette mit Lavabo\n*   Flexible Raumaufteilung nach Ihren Bedürfnissen\n\nZwei Ausse",
+   "frage": "Ist dieser Raum noch verfügbar, und wäre eine ruhige Hobbynutzung möglich? Gerne würde ich ihn besichtigen.",
+   "publiziert": "2026-11-17"
   }
  ],
  "ausgeschlossen": [
