@@ -22,7 +22,7 @@ E-Mail-Entwürfe: [`emails/ANGEBOTE.md`](emails/ANGEBOTE.md) · Verwaltungen ohn
 
 | Status | Objekt | Preis/Mt. | m² | km | Verfügbar | Anbieter / Kontakt | Link |
 |---|---|---|---|---|---|---|---|
-| 🆕 neu | **Wieshofstrasse 85, 8408 Winterthur**<br>Bastelraum<br><sub></sub> | CHF 100 | 12 | 2.5 | sofort | Wohngut GmbH<br>[Kontaktformular](https://flatfox.ch/de/listing/86548133/submit/) | [Inserat](https://flatfox.ch/de/86548133/) |
+| 🆕 neu · 🔌 offline | **Wieshofstrasse 85, 8408 Winterthur**<br>Bastelraum<br><sub></sub> | CHF 100 | 12 | 2.5 | sofort | Wohngut GmbH<br>[Kontaktformular](https://flatfox.ch/de/listing/86548133/submit/) | [Inserat](https://flatfox.ch/de/86548133/) |
 | 🆕 neu | **Archhöfe (Büro/ Praxis), 8400 Winterthur**<br>Brauchen Sie mehr Platz?<br><sub></sub> | CHF 120 | 12 | 1.0 | sofort | Wincasa AG<br>[Kontaktformular](https://flatfox.ch/de/listing/85844696/submit/) | [Inserat](https://flatfox.ch/de/85844696/) |
 | 🆕 neu | **Holzlegistr. 24, 8408 Winterthur**<br>Bastel- Hobbyraum zu vermieten<br><sub></sub> | CHF 135 | 18 | 2.2 | nach Vereinbarung | Wincasa AG<br>[Kontaktformular](https://flatfox.ch/de/listing/86587996/submit/) | [Inserat](https://flatfox.ch/de/86587996/) |
 | ⬜ offen | **Else-Züblin-Strasse 76, 8404 Winterthur (Neuhegi)**<br>Lagerraum 10.9 m², 24/7 zugänglich<br><sub>Lagerraum mit Steckdosen – Hobbynutzung anfragen</sub> | CHF 155<br><sub>CHF 155 inkl. NK und MWST, Depot CHF 500</sub> | 10.9 | 3.4 | sofort | Allianz Suisse Immobilien AG<br>[Kontaktformular](https://storabble.com/en/listing/10-9m2-lagerraum-winterthur-else-zublin-strasse-76-7333) | [Inserat](https://storabble.com/en/listing/10-9m2-lagerraum-winterthur-else-zublin-strasse-76-7333) |

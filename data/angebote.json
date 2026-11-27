@@ -977,7 +977,9 @@
    "nutzung": null,
    "hinweise": "Dieser vielseitig nutzbare Bastel- und Lagerraum bietet zusätzlichen Platz für kreative Tätigkeiten oder die Aufbewahrung verschiedenster Gegenstände.  \nDer Raum verfügt über ein Fenster mit Tageslichteinfall, einen Betonboden sowie eine Beleuchtung. Ideal als Hobby-, Bastel- oder Lagerraum.",
    "frage": "Ist dieser Raum noch verfügbar, und wäre eine ruhige Hobbynutzung möglich? Gerne würde ich ihn besichtigen.",
-   "publiziert": "2026-11-16"
+   "publiziert": "2026-11-16",
+   "offline": true,
+   "offline_seit": "2026-11-27T16:05:46+00:00"
   },
   {
    "id": "storabble:23664",
