@@ -2,7 +2,7 @@
 
 Stand: **2026-11-13** · Distanzen = Luftlinie ab Startpunkt Winterthur-Neuwiesen/Lind · Preise = Monatsmiete brutto inkl. NK, soweit bekannt.
 
-**44 Angebote** (31 live verifiziert, 13 nur über Suchmaschine gefunden) · Status-Legende: ⬜ offen · 🆕 neu · 📨 kontaktiert · 💬 Antwort erhalten · 👀 Besichtigung · ✅ zugesagt · ❌ abgesagt · 🚫 vergeben
+**45 Angebote** (32 live verifiziert, 13 nur über Suchmaschine gefunden) · Status-Legende: ⬜ offen · 🆕 neu · 📨 kontaktiert · 💬 Antwort erhalten · 👀 Besichtigung · ✅ zugesagt · ❌ abgesagt · 🚫 vergeben
 
 E-Mail-Entwürfe: [`emails/ANGEBOTE.md`](emails/ANGEBOTE.md) · Verwaltungen ohne Inserat: [`VERWALTUNGEN.md`](VERWALTUNGEN.md)
 
@@ -24,6 +24,7 @@ E-Mail-Entwürfe: [`emails/ANGEBOTE.md`](emails/ANGEBOTE.md) · Verwaltungen ohn
 |---|---|---|---|---|---|---|---|
 | 🆕 neu | **Wieshofstrasse 85, 8408 Winterthur**<br>Bastelraum<br><sub></sub> | CHF 100 | 12 | 2.5 | sofort | Wohngut GmbH<br>[Kontaktformular](https://flatfox.ch/de/listing/86548133/submit/) | [Inserat](https://flatfox.ch/de/86548133/) |
 | 🆕 neu | **Archhöfe (Büro/ Praxis), 8400 Winterthur**<br>Brauchen Sie mehr Platz?<br><sub></sub> | CHF 120 | 12 | 1.0 | sofort | Wincasa AG<br>[Kontaktformular](https://flatfox.ch/de/listing/85844696/submit/) | [Inserat](https://flatfox.ch/de/85844696/) |
+| 🆕 neu | **Holzlegistr. 24, 8408 Winterthur**<br>Bastel- Hobbyraum zu vermieten<br><sub></sub> | CHF 135 | 18 | 2.2 | nach Vereinbarung | Wincasa AG<br>[Kontaktformular](https://flatfox.ch/de/listing/86587996/submit/) | [Inserat](https://flatfox.ch/de/86587996/) |
 | ⬜ offen | **Else-Züblin-Strasse 76, 8404 Winterthur (Neuhegi)**<br>Lagerraum 10.9 m², 24/7 zugänglich<br><sub>Lagerraum mit Steckdosen – Hobbynutzung anfragen</sub> | CHF 155<br><sub>CHF 155 inkl. NK und MWST, Depot CHF 500</sub> | 10.9 | 3.4 | sofort | Allianz Suisse Immobilien AG<br>[Kontaktformular](https://storabble.com/en/listing/10-9m2-lagerraum-winterthur-else-zublin-strasse-76-7333) | [Inserat](https://storabble.com/en/listing/10-9m2-lagerraum-winterthur-else-zublin-strasse-76-7333) |
 | 🆕 neu | **Dorfstrasse 75, 8424 Embrach**<br>4m2 Kellerabteil Embrach - Dorfstrasse<br><sub></sub> | CHF 165 | 4.0 | 9.5 | ? | Swiss Property Management AG<br>[Kontaktformular](https://storabble.com/en/listing/4m2-kellerabteil-embrach-dorfstrasse-23664) | [Inserat](https://storabble.com/en/listing/4m2-kellerabteil-embrach-dorfstrasse-23664) |
 | ⬜ offen · 🔌 offline | **Alte Winterthurerstrasse 210, 8309 Nürensdorf**<br>Zusätzlicher Stauraum in Nürensdorf - Hobbyraum zu vermieten<br><sub>Hobbyraum (ausdrücklich), «ideal als Stauraum»</sub> | CHF 170 | 11 | 6.5 | sofort | Madeleine Kobelt Immobilien AG<br>☎ 044 833 63 27<br>[Kontaktformular](https://flatfox.ch/de/listing/86482615/submit/) | [Inserat](https://flatfox.ch/de/86482615/) |
@@ -111,6 +112,8 @@ Der Raum verfügt über ein Fenster mit Tageslichteinfall, einen Betonboden sowi
 Attraktive Lagerflächen im 2. UG um 12 m2. Hervorzuheben ist die optimale Erschliessung an den öffentlichen Verkehr, Parkplätze in der Tiefgarage können dazu gemietet werden.   
   
 Der Archhof nahe dem Bahnhof Winterthur ist ein moderner Bau. Darin vermieten wir Lagerräume in diversen Grössen um 12m2 a
+- **Holzlegistr. 24, 8408 Winterthur** – \- Bastelraum in Wohnüberbauung   
+\- Strom vorhanden
 - **Wülflingerstrasse 172, 8408 Winterthur** – Genaue Inserate-ID nicht eindeutig – in der Comparis-Liste nach «Wülflingerstrasse 172» suchen.
 - **Ibergstrasse 93, 8405 Winterthur (Seen)** – Unbeheizt, keine Parkplätze, Strom und Licht vorhanden.
 - **Else-Züblin-Strasse 76, 8404 Winterthur (Neuhegi)** – Eigener Schlüssel, 24/7 Zugang, mehrere Steckdosen, 3.1 m Raumhöhe, Lift, Parkplatz. Mindestmiete 2 Wochen, online mietbar.

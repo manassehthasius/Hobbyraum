@@ -1188,6 +1188,32 @@
    "hinweise": "**Günstiger Arbeitsplatz in kreativer Bürogemeinschaft (Kommunikation, Architektur, Coaching) direkt neben der Winterthurer Altstadt.**",
    "frage": "Ist dieser Raum noch verfügbar, und wäre eine ruhige Hobbynutzung möglich? Gerne würde ich ihn besichtigen.",
    "publiziert": "2026-11-23"
+  },
+  {
+   "id": "flatfox:86587996",
+   "status": "neu",
+   "prio": 2,
+   "verifiziert": "Monitor 2026-11-27 (Flatfox)",
+   "entdeckt": "2026-11-27T11:29:28+00:00",
+   "titel": "Bastel- Hobbyraum zu vermieten",
+   "typ": "HOBBY_ROOM",
+   "adresse": "Holzlegistr. 24, 8408 Winterthur",
+   "km": 2.2,
+   "chf_monat": 135,
+   "preis_text": null,
+   "m2": 18,
+   "verfuegbar": "nach Vereinbarung",
+   "anbieter": "Wincasa AG",
+   "kontakt_person": null,
+   "telefon": null,
+   "email": null,
+   "kontaktweg": "https://flatfox.ch/de/listing/86587996/submit/",
+   "link": "https://flatfox.ch/de/86587996/",
+   "weitere_links": [],
+   "nutzung": null,
+   "hinweise": "\\- Bastelraum in Wohnüberbauung   \n\\- Strom vorhanden",
+   "frage": "Ist dieser Raum noch verfügbar, und wäre eine ruhige Hobbynutzung möglich? Gerne würde ich ihn besichtigen.",
+   "publiziert": "2026-11-27"
   }
  ],
  "ausgeschlossen": [
